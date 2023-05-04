@@ -3,7 +3,7 @@
 export const Search = () => {
   return (
     <div className="flex items-center">
-      <div className="bg-white text-waterloo h-[44px] w-[50px] rounded-t-[32px] rounded-r-[0] rounded-b-[0] rounded-l-[33px] flex items-center justify-end mobileMax:h-[44px] mobileMax:w-[35px]">
+      <div className="bg-white text-waterloo h-[44px] w-[50px] rounded-l-[33px] flex items-center justify-end mobileMax:h-[44px] mobileMax:w-[35px]">
         <svg
           className="w-[21px] h-[21px] mobileMax:w-[16px]"
           viewBox="0 0 21 21"
