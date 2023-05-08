@@ -1,11 +1,9 @@
-"use client";
-
 export const Search = () => {
   return (
     <div className="flex items-center">
-      <div className="bg-white text-waterloo h-[44px] w-[50px] rounded-l-[33px] flex items-center justify-end mobileMax:h-[44px] mobileMax:w-[35px]">
+      <div className="flex h-[44px] w-[50px] items-center justify-end rounded-l-[33px] bg-white text-waterloo mobileMax:h-[44px] mobileMax:w-[35px]">
         <svg
-          className="w-[21px] h-[21px] mobileMax:w-[16px]"
+          className="h-[21px] w-[21px] mobileMax:w-[16px]"
           viewBox="0 0 21 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +25,7 @@ export const Search = () => {
         </svg>
       </div>
       <input
-        className="h-[44px] w-full p-[19px] border-[1px] border-solid border-mystic/0 rounded-r-[33px] rounded-l-[0] bg-white mobileMax:placeholder:text-[16px]"
+        className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-[1px] border-solid border-mystic/0 bg-white p-[19px] mobileMax:placeholder:text-[16px]"
         placeholder="Search..."
       />
     </div>

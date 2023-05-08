@@ -1,15 +1,15 @@
-"use client";
 import { Search } from "@/components/Search";
+import Link from "next/link";
 
 export const Header = () => {
   return (
     <header>
-      <div className="px-[23px] py-[16px] bg-black text-white mobileMax:p-[16px]">
-        <div className="max-w-[1368px] m-auto grid gap-[16px] grid-cols-[auto,minmax(205px,432px)] mobileMax:grid-cols-[1fr] mobileMax:gap-[24px]">
+      <div className="bg-black px-[23px] py-[16px] text-white mobileMax:p-[16px]">
+        <div className="m-auto grid max-w-[1368px] grid-cols-[auto,minmax(205px,432px)] gap-[16px] mobileMax:grid-cols-[1fr] mobileMax:gap-[24px]">
           <div className="flex gap-[80px] mobileMax:justify-between mobileMax:gap-[20px]">
-            <div className="decoration-none text-white flex gap-[12px] items-center mobileMax:gap-[8px]">
+            <div className="decoration-none flex items-center gap-[12px] text-white mobileMax:gap-[8px]">
               <svg
-                className="shrink-0 w-[40px] h-[40px] mobileMax:w-[17px] mobileMax:h-[17px]"
+                className="h-[40px] w-[40px] shrink-0 mobileMax:h-[17px] mobileMax:w-[17px]"
                 viewBox="0 0 40 40"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,23 +31,23 @@ export const Header = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <div className="font-medium text-[24px] shrink-0 mobileMax:text-[13px]">
+              <div className="shrink-0 text-[24px] font-medium mobileMax:text-[13px]">
                 Movies Browser
               </div>
             </div>
             <nav>
-              <div className="flex gap-[16px] p-0 m-0 list-none mobileMax:gap-[12px] mobileMax:ml-[30px]">
+              <ul className="m-0 flex list-none gap-[16px] p-0 mobileMax:ml-[30px] mobileMax:gap-[12px]">
                 <li>
-                  <div className="block text-white bg-none border-none rounded-[24px] text-[14px] font-semibold px[13.5px] py-[24px] decoration-none active:border-white hover:cursor-pointer mobileMax:text-[12px] mobileMax:px-[8px] mobileMax:[12px]">
+                  <Link href="/movies" className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]">
                     MOVIES
-                  </div>
+                  </Link>
                 </li>
                 <li>
-                  <div className="block text-white bg-none border-none rounded-[24px] text-[14px] font-semibold px[13.5px] py-[24px] decoration-none active:border-white hover:cursor-pointer mobileMax:text-[12px] mobileMax:px-[8px] mobileMax:[12px]">
+                  <Link href="/people" className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]">
                     PEOPLE
-                  </div>
+                  </Link>
                 </li>
-              </div>
+              </ul>
             </nav>
           </div>
           <Search />
