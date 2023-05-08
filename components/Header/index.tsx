@@ -38,12 +38,18 @@ export const Header = () => {
             <nav>
               <ul className="m-0 flex list-none gap-[16px] p-0 mobileMax:ml-[30px] mobileMax:gap-[12px]">
                 <li>
-                  <Link href="/movies" className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]">
+                  <Link
+                    href="/movies"
+                    className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]"
+                  >
                     MOVIES
                   </Link>
                 </li>
                 <li>
-                  <Link href="/people" className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]">
+                  <Link
+                    href="/people"
+                    className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]"
+                  >
                     PEOPLE
                   </Link>
                 </li>
