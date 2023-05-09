@@ -25,13 +25,6 @@ export const metadata: Metadata = {
     title: "Movies Browser",
     description: "Movies browser app created with Next.js 13 and TypeScript",
     url: "https://movie-browser-ts-next-js13.vercel.app/",
-    images: [
-      {
-        url: "/public/moviesBrowser.jpg",
-        width: "1200",
-        height: "800",
-      },
-    ],
   },
 };
 
