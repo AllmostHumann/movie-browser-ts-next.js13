@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "@/components/Search";
+import { Search } from "@/components/Search/search";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
