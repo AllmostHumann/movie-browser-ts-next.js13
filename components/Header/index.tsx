@@ -1,34 +1,17 @@
-"use client";
-
-import { Search } from "@/components/Search/search";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Search } from "../Search";
+import { Navigation } from "../Navigation";
 
-export const Navigation = () => {
-  const router: string = usePathname();
-
-  interface NavLink {
-    name: string;
-    link: string;
-  }
-
-  const navLink: NavLink[] = [
-    {
-      name: "MOVIES",
-      link: "/movies",
-    },
-    {
-      name: "PEOPLE",
-      link: "/people",
-    },
-  ];
-
+export const Header = () => {
   return (
-    <nav>
+    <header>
       <div className="bg-black px-[23px] py-[16px] text-white mobileMax:p-[16px]">
         <div className="m-auto grid max-w-[1368px] grid-cols-[auto,minmax(205px,432px)] gap-[16px] mobileMax:grid-cols-[1fr] mobileMax:gap-[24px]">
           <div className="flex gap-[80px] mobileMax:justify-between mobileMax:gap-[20px]">
-            <div className="decoration-none flex items-center gap-[12px] text-white mobileMax:gap-[8px]">
+            <Link
+              href="/movies"
+              className="decoration-none flex items-center gap-[12px] text-white mobileMax:gap-[8px]"
+            >
               <svg
                 className="h-[40px] w-[40px] shrink-0 mobileMax:h-[17px] mobileMax:w-[17px]"
                 viewBox="0 0 40 40"
@@ -55,28 +38,12 @@ export const Navigation = () => {
               <div className="shrink-0 text-[24px] font-medium mobileMax:text-[13px]">
                 Movies Browser
               </div>
-            </div>
-            <nav>
-              <div className="m-0 flex list-none gap-[16px] p-0 mobileMax:ml-[30px] mobileMax:gap-[12px]">
-                {navLink.map(({ link, name }) => (
-                  <Link
-                    key={name}
-                    href={link}
-                    className={`${
-                      router === link
-                        ? "px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-[1px] border-solid border-white bg-none px-[24px] py-[13.5px] text-[14px] font-semibold text-white hover:cursor-pointer mobileMax:px-[12px] mobileMax:py-[8px] mobileMax:text-[12px]"
-                        : "px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-[1px] border-none border-white bg-none px-[24px] py-[13.5px] text-[14px] font-semibold text-white hover:cursor-pointer mobileMax:px-[12px] mobileMax:py-[8px] mobileMax:text-[12px]"
-                    } `}
-                  >
-                    {name}
-                  </Link>
-                ))}
-              </div>
-            </nav>
+            </Link>
+            <Navigation />
           </div>
           <Search />
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
