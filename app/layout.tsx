@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Header } from "@/components/Header";
+import { Navigation } from "@/components/Navigation/nav";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     title: "Movies Browser",
     description: "Movies browser app created with Next.js 13 and TypeScript",
     url: "https://movie-browser-ts-next-js13.vercel.app/",
+    type: "website",
   },
 };
 
@@ -36,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.className}>
       <body>
-        <Header />
+        <Navigation />
         {children}
       </body>
     </html>

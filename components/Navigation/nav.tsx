@@ -1,9 +1,30 @@
+"use client";
+
 import { Search } from "@/components/Search";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export const Header = () => {
+export const Navigation = () => {
+  const router: string = usePathname();
+
+  interface NavLink {
+    name: string;
+    link: string;
+  }
+
+  const navLink: NavLink[] = [
+    {
+      name: "MOVIES",
+      link: "/movies",
+    },
+    {
+      name: "PEOPLE",
+      link: "/people",
+    },
+  ];
+
   return (
-    <header>
+    <nav>
       <div className="bg-black px-[23px] py-[16px] text-white mobileMax:p-[16px]">
         <div className="m-auto grid max-w-[1368px] grid-cols-[auto,minmax(205px,432px)] gap-[16px] mobileMax:grid-cols-[1fr] mobileMax:gap-[24px]">
           <div className="flex gap-[80px] mobileMax:justify-between mobileMax:gap-[20px]">
@@ -36,29 +57,26 @@ export const Header = () => {
               </div>
             </div>
             <nav>
-              <ul className="m-0 flex list-none gap-[16px] p-0 mobileMax:ml-[30px] mobileMax:gap-[12px]">
-                <li>
+              <div className="m-0 flex list-none gap-[16px] p-0 mobileMax:ml-[30px] mobileMax:gap-[12px]">
+                {navLink.map(({ link, name }) => (
                   <Link
-                    href="/movies"
-                    className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]"
+                    key={name}
+                    href={link}
+                    className={`${
+                      router === link
+                        ? "px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-[1px] border-solid border-white bg-none px-[24px] py-[13.5px] text-[14px] font-semibold text-white hover:cursor-pointer mobileMax:px-[12px] mobileMax:py-[8px] mobileMax:text-[12px]"
+                        : "px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-[1px] border-none border-white bg-none px-[24px] py-[13.5px] text-[14px] font-semibold text-white hover:cursor-pointer mobileMax:px-[12px] mobileMax:py-[8px] mobileMax:text-[12px]"
+                    } `}
                   >
-                    MOVIES
+                    {name}
                   </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/people"
-                    className="px[13.5px] decoration-none mobileMax:[12px] block rounded-[24px] border-none bg-none py-[24px] text-[14px] font-semibold text-white hover:cursor-pointer active:border-white mobileMax:px-[8px] mobileMax:text-[12px]"
-                  >
-                    PEOPLE
-                  </Link>
-                </li>
-              </ul>
+                ))}
+              </div>
             </nav>
           </div>
           <Search />
         </div>
       </div>
-    </header>
+    </nav>
   );
 };

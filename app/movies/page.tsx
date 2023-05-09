@@ -1,3 +1,5 @@
 export default function popularMovies() {
-  return;
+  return(
+    <div>movies</div>
+  );
 }
