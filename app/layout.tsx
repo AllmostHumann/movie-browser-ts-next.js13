@@ -27,7 +27,9 @@ export const metadata: Metadata = {
     url: "https://movie-browser-ts-next-js13.vercel.app/",
     images: [
       {
-        url: "/public/moviesBrowser.png"
+        url: "/public/moviesBrowser.jpg",
+        width: "1200",
+        height: "800",
       },
     ],
   },
