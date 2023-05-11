@@ -14,7 +14,10 @@ export const Header = () => {
               href="/movies"
               className="decoration-none flex items-center gap-[12px] text-white mobileMax:gap-[8px]"
             >
-              <Image src={Icon} alt="icon" />
+              <Image
+                src={Icon}
+                alt="icon"
+              />
               <p className="shrink-0 text-[24px] font-medium mobileMax:text-[13px]">
                 Movies Browser
               </p>
