@@ -1,4 +1,5 @@
 import "./globals.css";
+import Providers from "@/utils/provider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Header } from "@/components/Header";
@@ -35,10 +36,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html
+      lang="en"
+      className={poppins.className}
+    >
       <body>
         <Header />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
