@@ -14,11 +14,11 @@ export const Navigation = () => {
   const navLink: NavLink[] = [
     {
       name: "MOVIES",
-      link: "/movies",
+      link: "/movies-browser/movies",
     },
     {
       name: "PEOPLE",
-      link: "/people",
+      link: "/movies-browser/people",
     },
   ];
 
