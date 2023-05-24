@@ -2,7 +2,7 @@ import "./globals.css";
 import Providers from "@/utils/provider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Header } from "@/components/Header";
+import { Header } from "@/app/components/Header";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
