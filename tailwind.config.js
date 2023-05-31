@@ -6,9 +6,6 @@ export const content = [
 ];
 export const theme = {
   extend: {
-    screens: {
-      mobileMax: { max: "767px" },
-    },
     colors: {
       whisper: "#F5F5FA",
       white: "#FFFFFF",
@@ -23,7 +20,15 @@ export const theme = {
       snuff: "#DDDDEE",
       linkWater: "#D3DEF3",
     },
-    gridTemplateColumns: {},
+    gridTemplateColumns: {
+      1: "1fr",
+      2: "repeat(2, 1fr)",
+      3: "repeat(3, 1fr)",
+      4: "repeat(4, 1fr)",
+    },
+    gridTemplateRows: {
+      1: "auto, 1fr",
+    },
   },
 };
 export const plugins = [
