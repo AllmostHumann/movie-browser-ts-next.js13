@@ -38,7 +38,7 @@ export const Tile = (movie: MoviesListResult) => {
             {new Date(movie.relase_date).getFullYear()}
           </p>
         )}
-        {/* {genre_ids && <Genres genre_ids={genre_ids} />} */}
+        {movie.genre_ids && <Genres genre_ids={movie.genre_ids} />}
         {movie.vote_average && movie.vote_count ? (
           <div className="flex items-center px-[8px] py-0">
             <Image
