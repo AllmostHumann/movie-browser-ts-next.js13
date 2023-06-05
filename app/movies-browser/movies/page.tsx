@@ -7,6 +7,7 @@ import { Container } from "@/app/components/Container";
 import { Main } from "@/app/components/Main";
 import { GridList } from "@/app/components/GridList";
 import { Tile } from "@/app/components/Tile";
+import { SectionTitle } from "@/app/components/SectionTitle";
 
 export default function PopularMovies() {
   const { isLoading, error, data } = useQuery({
@@ -25,23 +26,26 @@ export default function PopularMovies() {
   return (
     <Main>
       <Container>
-        <GridList>
-          {data?.map((movies) => (
-            <li key={movies.id}>
-              <Link href="/movies-browser/movies">
-                <Tile
-                  id={movies.id}
-                  title={movies.title}
-                  poster_path={movies.poster_path}
-                  vote_average={movies.vote_average}
-                  vote_count={movies.vote_count}
-                  relase_date={movies.relase_date}
-                  genre_ids={movies.genre_ids}
-                />
-              </Link>
-            </li>
-          ))}
-        </GridList>
+        <section>
+          <SectionTitle>Popular Movies</SectionTitle>
+          <GridList>
+            {data?.map((movies) => (
+              <li key={movies.id}>
+                <Link href="/movies-browser/movies">
+                  <Tile
+                    id={movies.id}
+                    title={movies.title}
+                    poster_path={movies.poster_path}
+                    vote_average={movies.vote_average}
+                    vote_count={movies.vote_count}
+                    relase_date={movies.relase_date}
+                    genre_ids={movies.genre_ids}
+                  />
+                </Link>
+              </li>
+            ))}
+          </GridList>
+        </section>
       </Container>
     </Main>
   );
