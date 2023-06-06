@@ -19,7 +19,7 @@ export const Genres = (movies: MoviesListResult, genres: GenresResults) => {
       {filteredGenres?.map((genre) =>
         genre?.map(({ name }) => (
           <div
-            key={genres.id}
+            key={name}
             className="flex rounded-[5px] bg-mystic px-[8px] py-[4px] text-smoke md:px-[16px] md:py-[8px]"
           >
             {name}
