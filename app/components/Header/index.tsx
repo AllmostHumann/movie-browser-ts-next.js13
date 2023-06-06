@@ -6,21 +6,19 @@ import { Navigation } from "@/app/components/Navigation";
 
 export const Header = () => {
   return (
-    <header className="m-auto bg-black px-[16px] py-[23px] text-white md:p-[16px]">
-      <div className="w-[1368px] m-auto grid grid-cols-[auto,minmax(205px,432px)] gap-[16px] md:grid-cols-[1fr] md:gap-[24px]">
-        <div className="flex gap-[80px] md:justify-between md:gap-[20px]">
+    <header className="m-auto bg-black p-[16px] text-white md:px-[16px] md:py-[23px]">
+      <div className="m-auto grid max-w-[1368px] grid-cols-1 gap-[24px] md:grid-cols-[auto,minmax(205px,432px)] md:gap-[16px]">
+        <div className="flex justify-between gap-[20px] md:justify-start md:gap-[80px]">
           <Link
             href="/movies-browser/movies"
-            className="decoration-none flex items-center gap-[12px] text-white md:gap-[8px]"
+            className="decoration-none flex items-center gap-[8px] text-white md:gap-[12px]"
           >
             <Image
               src={Icon}
               alt="icon"
-              width={0}
-              height={0}
-              className=" md:h-[17px] md:w-[17px]"
+              className="h-[17px] w-[17px] shrink-0 md:h-[40px] md:w-[40px]"
             />
-            <p className="text-[24px] font-medium md:text-[13px]">
+            <p className="shrink-0 text-[13px] font-medium md:text-[24px]">
               Movies Browser
             </p>
           </Link>

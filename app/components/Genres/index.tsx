@@ -15,12 +15,12 @@ export const Genres = (movies: MoviesListResult, genres: GenresResults) => {
   );
 
   return (
-    <div className="flex flex-wrap gap-[8px] text-[14px] font-normal leading-[1.4] md:px-[8px] md:py-[4px] md:text-[10px] md:leading-[11px]">
+    <div className="flex flex-wrap gap-[8px] text-[10px] font-normal leading-normal md:text-[14px]">
       {filteredGenres?.map((genre) =>
         genre?.map(({ name }) => (
           <div
             key={genres.id}
-            className="flex rounded-[5px] bg-mystic px-[16px] py-[8px] text-smoke md:px-[8px] md:py-[4px]"
+            className="flex rounded-[5px] bg-mystic px-[8px] py-[4px] text-smoke md:px-[16px] md:py-[8px]"
           >
             {name}
           </div>

@@ -17,7 +17,7 @@ export const apiConfig = {
     endpoint: `${commonEndpoints.person}/popular${apiKey}${apiLanguage}`,
   },
   posters: {
-    endpoint: `${apiImagesBaseUrl}/original`,
+    endpoint: `${apiImagesBaseUrl}/w400`,
   },
   genres: {
     endpoint: `${commonEndpoints.genre}/movie/list${apiKey}${apiLanguage}`,
