@@ -60,6 +60,8 @@ export const Tile = (movie: MoviesListResult) => {
             className="h-[16px] w-[16px] md:h-[21px] md:w-[24px]"
             src={Star}
             alt="star"
+            width={24}
+            height={21}
           />
         )}
       </div>
