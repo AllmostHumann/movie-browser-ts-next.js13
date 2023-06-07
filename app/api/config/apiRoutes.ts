@@ -11,7 +11,7 @@ const commonEndpoints = {
 
 export const apiConfig = {
   movies: {
-    endpoint: `${commonEndpoints.movie}/popular${apiKey}${apiLanguage}`,
+    endpoint: `${commonEndpoints.movie}/popular${apiKey}${apiLanguage}&page=`,
   },
   people: {
     endpoint: `${commonEndpoints.person}/popular${apiKey}${apiLanguage}`,

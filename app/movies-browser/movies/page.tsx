@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchMovieData } from "@/app/api/hooks/movies/useMovies";
 import { Container } from "@/app/components/Container";
@@ -10,9 +11,12 @@ import { Tile } from "@/app/components/Tile";
 import { SectionTitle } from "@/app/components/SectionTitle";
 
 export default function PopularMovies() {
+  const [page, setPage] = useState(1);
+
   const { isLoading, error, data } = useQuery({
-    queryKey: ["movies"],
-    queryFn: fetchMovieData,
+    queryKey: ["movies", page],
+    queryFn: () => fetchMovieData({ page }),
+    keepPreviousData: true,
   });
 
   if (isLoading) {
@@ -26,6 +30,10 @@ export default function PopularMovies() {
   return (
     <Main>
       <Container>
+        <p>Strona {page}</p>
+        <button onClick={() => setPage((page) => page + 1)}>
+          Następna strona
+        </button>
         <section>
           <SectionTitle>Popular Movies</SectionTitle>
           <GridList>
