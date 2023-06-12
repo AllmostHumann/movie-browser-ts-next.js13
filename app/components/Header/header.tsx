@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "./images/moviesIcon.svg";
-import { Search } from "@/app/components/Search";
-import { Navigation } from "@/app/components/Navigation";
+import { Search } from "@/app/components/Search/search";
+import { Navigation } from "@/app/components/Navigation/navigation";
 
 export const Header = () => {
   return (
