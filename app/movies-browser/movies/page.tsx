@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
 import { fetchMovieData } from "@/app/api/hooks/movies/useMovies";
 import { Container } from "@/app/components/Container/container";
 import { Main } from "@/app/components/Main/main";
@@ -14,7 +13,6 @@ import { Pagination } from "@/app/components/Pagination/pagination";
 
 export default function PopularMovies() {
   const [page, setPage] = useState(1);
-  const searchParams = useSearchParams();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["movies", page],
@@ -33,13 +31,6 @@ export default function PopularMovies() {
   return (
     <Main>
       <Container>
-        <p>Strona {page}</p>
-        <Link href={`/movies-browser/movies?page=${page + 1}`}>
-          {" "}
-          <button onClick={() => setPage((page) => page + 1)}>
-            Następna strona
-          </button>
-        </Link>
         <section>
           <SectionTitle>Popular Movies</SectionTitle>
           <GridList>
@@ -60,7 +51,10 @@ export default function PopularMovies() {
             ))}
           </GridList>
         </section>
-        <Pagination page={page} />
+        <Pagination
+          setPage={setPage}
+          page={page}
+        />
       </Container>
     </Main>
   );
