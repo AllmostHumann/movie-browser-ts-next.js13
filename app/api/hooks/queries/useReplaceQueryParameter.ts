@@ -5,7 +5,7 @@ export const useReplaceQueryParameter = () => {
   const location = usePathname();
   const router = useRouter();
 
-  return ({ value }: { value: any }) => {
+  return (value: string) => {
     const searchParams = new URLSearchParams();
 
     if (value === "") {

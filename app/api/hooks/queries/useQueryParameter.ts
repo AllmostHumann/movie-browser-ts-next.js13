@@ -1,6 +1,6 @@
 import { useSearchParams } from "next/navigation";
 
-const useQueryParameter = ({ paramName }: { paramName: string }) => {
+const useQueryParameter = (paramName: string) => {
   const location = useSearchParams();
   return location.get(paramName);
 };
