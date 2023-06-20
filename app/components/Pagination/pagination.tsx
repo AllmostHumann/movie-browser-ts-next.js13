@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import VectorNext from "./images/VectorNext.svg";
 import VectorPrevious from "./images/VectorPrevious.svg";
