@@ -24,9 +24,9 @@ export const apiConfig = {
     endpoint: `${commonEndpoints.genre}/movie/list${apiKey}${apiLanguage}`,
   },
   searchMovie: {
-    endpoint: `${commonEndpoints.search}/movie${apiKey}${apiLanguage}&query`,
+    endpoint: `${commonEndpoints.search}/movie${apiKey}${apiLanguage}`,
   },
   searchPerson: {
-    endpoint: `${commonEndpoints.search}/person${apiKey}${apiLanguage}&query`,
+    endpoint: `${commonEndpoints.search}/person${apiKey}${apiLanguage}`,
   },
 };
