@@ -7,6 +7,7 @@ const commonEndpoints = {
   movie: "/movie",
   person: "/person",
   genre: "/genre",
+  search: "/search",
 };
 
 export const apiConfig = {
@@ -21,5 +22,11 @@ export const apiConfig = {
   },
   genres: {
     endpoint: `${commonEndpoints.genre}/movie/list${apiKey}${apiLanguage}`,
+  },
+  searchMovie: {
+    endpoint: `${commonEndpoints.search}/movie${apiKey}${apiLanguage}&query`,
+  },
+  searchPerson: {
+    endpoint: `${commonEndpoints.search}/person${apiKey}${apiLanguage}&query`,
   },
 };
