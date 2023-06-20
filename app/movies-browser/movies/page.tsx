@@ -11,11 +11,14 @@ import { GridList } from "@/app/components/GridList/gridList";
 import { Tile } from "@/app/components/Tile/tile";
 import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { Pagination } from "@/app/components/Pagination/pagination";
+import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
+import { MoviesResponse } from "../../api/types/movies/movies";
 
 export default function PopularMovies() {
   const searchParams = useSearchParams();
   const search = Number(searchParams.get("page")) || 1;
   const [page, setPage] = useState(search);
+  const query = searchParams.get(searchQueryParamName) || null;
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["movies", page],
@@ -34,12 +37,10 @@ export default function PopularMovies() {
   return (
     <Main>
       <Container>
-        <Pagination
-          setPage={setPage}
-          page={page}
-        />
         <section>
-          <SectionTitle>Popular Movies</SectionTitle>
+          <SectionTitle>
+            {query ? `Search results for "${query}"` : "Popular movies"}
+          </SectionTitle>
           <GridList>
             {data?.map((movies) => (
               <li key={movies.id}>
@@ -58,6 +59,10 @@ export default function PopularMovies() {
             ))}
           </GridList>
         </section>
+        <Pagination
+          setPage={setPage}
+          page={page}
+        />
       </Container>
     </Main>
   );
