@@ -9,6 +9,7 @@ import { useReplaceQueryParameter } from "@/app/api/hooks/queries/useReplaceQuer
 import useQueryParameter, {
   searchQueryParamName,
 } from "@/app/api/hooks/queries/useQueryParameter";
+import { DebounceInput } from "react-debounce-input";
 
 export const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -41,10 +42,10 @@ export const Search = () => {
           className="h-[21px] w-[16px] text-waterloo md:w-[21px]"
         />
       </div>
-      <input
-        
+      <DebounceInput
         value={query || ""}
         onChange={onInputChange}
+        debounceTimeout={300}
         className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-[1px] border-solid  border-mystic/0 bg-white p-[19px] text-black outline-none placeholder:text-[16px]"
         placeholder={
           location.pathname.includes("people")
