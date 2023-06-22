@@ -1,37 +1,54 @@
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import qs from "qs";
 import { Dispatch, SetStateAction } from "react";
+import Image from "next/image";
 import VectorNext from "./images/VectorNext.svg";
 import VectorPrevious from "./images/VectorPrevious.svg";
+import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
 export const Pagination = ({
   page,
   setPage,
+  query
 }: {
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
+  query: string | null;
 }) => {
   const router = useRouter();
+
   const totalPages = 500;
 
   const goToFirstPage = () => {
     setPage((page) => (page = 1));
-    router.push(`/movies-browser/movies?page=${(page = 1)}`);
+    router.push(
+      `/movies-browser/movies?` +
+        qs.stringify({ query, page: 1 }, { skipNulls: true })
+    );
   };
 
   const goToPreviousPage = () => {
     setPage((page) => page - 1);
-    router.push(`/movies-browser/movies?page=${page - 1}`);
+    router.push(
+      `/movies-browser/movies?` +
+        qs.stringify({ query, page: page - 1 }, { skipNulls: true })
+    );
   };
 
   const goToNextPage = () => {
     setPage((page) => page + 1);
-    router.push(`/movies-browser/movies?page=${page + 1}`);
+    router.push(
+      `/movies-browser/movies?` +
+        qs.stringify({ query, page: page + 1 }, { skipNulls: true })
+    );
   };
 
   const goToLastPage = () => {
     setPage((page) => (page = 500));
-    router.push(`/movies-browser/movies?page=${(page = 500)}`);
+    router.push(
+      `/movies-browser/movies?` +
+        qs.stringify({ query, page: 500 }, { skipNulls: true })
+    );
   };
 
   return (
@@ -119,16 +136,3 @@ export const Pagination = ({
     </div>
   );
 };
-
-{
-  /* <Image
-className="md:mx-[4px] md:my-0 md:block md:text-scienceBlue"
-src={VectorPrevious}
-alt="first"
-/>
-<Image
-className="md:mx-[4px] md:my-0 md:hidden md:text-scienceBlue"
-src={VectorPrevious}
-alt="first"
-/> */
-}
