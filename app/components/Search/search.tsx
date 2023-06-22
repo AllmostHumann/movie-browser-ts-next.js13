@@ -2,24 +2,17 @@
 
 import Image from "next/image";
 import SearchIcon from "./images/searchIcon.svg";
-import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { useReplaceQueryParameter } from "@/app/api/hooks/queries/useReplaceQueryParameter";
 import useQueryParameter, {
   searchQueryParamName,
 } from "@/app/api/hooks/queries/useQueryParameter";
 import { DebounceInput } from "react-debounce-input";
+import { usePathname } from "next/navigation";
 
 export const Search = () => {
-  const query = useQueryParameter(searchQueryParamName);
+  const pathname = usePathname();
   const replaceQueryParam = useReplaceQueryParameter();
-
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["query", query],
-    queryFn: () => fetchMovieQuery({ query }),
-    keepPreviousData: true,
-  });
+  const query = useQueryParameter(searchQueryParamName);
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -48,7 +41,7 @@ export const Search = () => {
         debounceTimeout={300}
         className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-[1px] border-solid  border-mystic/0 bg-white p-[19px] text-black outline-none placeholder:text-[16px]"
         placeholder={
-          location.pathname.includes("people")
+          pathname.includes("people")
             ? "Search for people..."
             : "Search for movies..."
         }
