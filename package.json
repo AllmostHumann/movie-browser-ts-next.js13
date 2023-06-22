@@ -24,6 +24,7 @@
     "eslint-config-next": "^13.4.3",
     "next": "^13.4.6",
     "postcss": "8.4.23",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-debounce-input": "^3.3.0",
     "react-dom": "^18.2.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.29.4",
+    "@types/qs": "^6.9.7",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "typescript": "^5.1.3"
