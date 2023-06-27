@@ -12,6 +12,8 @@ import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { Pagination } from "@/app/components/Pagination/pagination";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
+import { ErrorPage } from "@/app/components/Status/Error/error";
+import { LoadingPage } from "@/app/components/Status/Loading/loading";
 
 export default function PopularMovies() {
   const searchParams = useSearchParams();
@@ -24,7 +26,6 @@ export default function PopularMovies() {
         queryKey: ["moviesList", { page }],
         queryFn: () => fetchMovieData({ page }),
         keepPreviousData: true,
-        enabled: !query,
       },
       {
         queryKey: ["searchMovie", { query, page }],
@@ -38,12 +39,12 @@ export default function PopularMovies() {
   const { data: popularMovies, isLoading, error } = moviesList;
   const { data: filteredMovies } = searchMovie;
 
-  if (isLoading) {
-    return "Trwa ładowanie...";
+  if (moviesList.isLoading) {
+    return <LoadingPage />;
   }
 
   if (error instanceof Error) {
-    return `Mamy błąd: ${error.message}`;
+    return <ErrorPage />;
   }
 
   return (
