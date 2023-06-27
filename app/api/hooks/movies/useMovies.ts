@@ -11,5 +11,5 @@ export const fetchMovieData = async ({ page }: moviesProps) => {
     `${apiConfig.movies.endpoint}`,
     { params: { page } }
   );
-  return response.data.results;
+  return response.data;
 };

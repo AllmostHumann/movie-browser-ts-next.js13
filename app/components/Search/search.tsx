@@ -16,7 +16,7 @@ export const Search = () => {
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    replaceQueryParam(value);
+    replaceQueryParam({ value });
   };
 
   const onFormSubmit = (event: { preventDefault: () => void }) => {

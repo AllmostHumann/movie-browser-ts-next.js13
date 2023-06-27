@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { fetchMovieData } from "@/app/api/hooks/movies/useMovies";
@@ -16,16 +15,16 @@ import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
 
 export default function PopularMovies() {
   const searchParams = useSearchParams();
-  const search = Number(searchParams.get("page")) || 1;
-  const [page, setPage] = useState(search);
+  const page = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName) || null;
 
   const [moviesList, searchMovie] = useQueries({
     queries: [
       {
-        queryKey: ["moviesList", page],
+        queryKey: ["moviesList", { page }],
         queryFn: () => fetchMovieData({ page }),
         keepPreviousData: true,
+        enabled: !query,
       },
       {
         queryKey: ["searchMovie", { query, page }],
@@ -36,7 +35,7 @@ export default function PopularMovies() {
     ],
   });
 
-  const { data: movies, isLoading, error } = moviesList;
+  const { data: popularMovies, isLoading, error } = moviesList;
   const { data: filteredMovies } = searchMovie;
 
   if (isLoading) {
@@ -58,7 +57,7 @@ export default function PopularMovies() {
           </SectionTitle>
           <GridList>
             {!query &&
-              movies?.map((movie) => (
+              popularMovies?.results?.map((movie) => (
                 <li key={movie.id}>
                   <Link href="/movies-browser/movies">
                     <Tile
@@ -73,7 +72,7 @@ export default function PopularMovies() {
                   </Link>
                 </li>
               ))}
-            {query &&
+            {!!query &&
               filteredMovies?.results?.map((query) => (
                 <li key={query.id}>
                   <Link href="/movies-browser/movies">
@@ -92,9 +91,9 @@ export default function PopularMovies() {
           </GridList>
         </section>
         <Pagination
-          setPage={setPage}
-          page={page}
-          query={query}
+          total_pages={
+            query ? filteredMovies?.total_pages : !popularMovies?.total_pages
+          }
         />
       </Container>
     </Main>

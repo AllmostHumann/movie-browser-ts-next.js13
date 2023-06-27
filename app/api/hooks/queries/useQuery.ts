@@ -14,3 +14,4 @@ export const fetchMovieQuery = async ({ query, page }: queryProps) => {
   );
   return response.data;
 };
+
