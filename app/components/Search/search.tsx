@@ -39,7 +39,7 @@ export const Search = () => {
         value={query || ""}
         onChange={onInputChange}
         debounceTimeout={300}
-        className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-[1px] border-solid  border-mystic/0 bg-white p-[19px] text-black outline-none placeholder:text-[16px]"
+        className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-solid  border-mystic/0 bg-white p-[19px] text-black  placeholder:text-[16px]  focus:border-none focus:ring-0"
         placeholder={
           pathname.includes("people")
             ? "Search for people..."
