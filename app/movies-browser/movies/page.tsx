@@ -14,6 +14,7 @@ import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter"
 import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
 import { ErrorPage } from "@/app/components/Status/Error/error";
 import { LoadingPage } from "@/app/components/Status/Loading/loading";
+import { NoResult } from "@/app/components/Status/NoResult/noResult";
 
 export default function PopularMovies() {
   const searchParams = useSearchParams();
@@ -36,67 +37,79 @@ export default function PopularMovies() {
     ],
   });
 
-  const { data: popularMovies, isLoading, error } = moviesList;
-  const { data: filteredMovies } = searchMovie;
+  const {
+    data: popularMovies,
+    isLoading: moviesListLoading,
+    error: moviesListError,
+  } = moviesList;
+  const {
+    data: filteredMovies,
+    isLoading: searchMovieLoading,
+    error: searchMovieError,
+  } = searchMovie;
 
-  if (moviesList.isLoading) {
+  if (moviesListLoading && searchMovieLoading) {
     return <LoadingPage />;
   }
 
-  if (error instanceof Error) {
+  if (moviesListError && searchMovieError instanceof Error) {
     return <ErrorPage />;
   }
 
   return (
     <Main>
-      <Container>
-        <section>
-          <SectionTitle>
-            {query
-              ? `Search results for "${query}" (${filteredMovies?.total_results})`
-              : "Popular movies"}
-          </SectionTitle>
-          <GridList>
-            {!query &&
-              popularMovies?.results?.map((movie) => (
-                <li key={movie.id}>
-                  <Link href="/movies-browser/movies">
-                    <Tile
-                      id={movie.id}
-                      title={movie.title}
-                      poster_path={movie.poster_path}
-                      vote_average={movie.vote_average}
-                      vote_count={movie.vote_count}
-                      relase_date={movie.relase_date}
-                      genre_ids={movie.genre_ids}
-                    />
-                  </Link>
-                </li>
-              ))}
-            {!!query &&
-              filteredMovies?.results?.map((query) => (
-                <li key={query.id}>
-                  <Link href="/movies-browser/movies">
-                    <Tile
-                      id={query.id}
-                      title={query.title}
-                      poster_path={query.poster_path}
-                      vote_average={query.vote_average}
-                      vote_count={query.vote_count}
-                      relase_date={query.relase_date}
-                      genre_ids={query.genre_ids}
-                    />
-                  </Link>
-                </li>
-              ))}
-          </GridList>
-        </section>
-        <Pagination
-          total_pages={
-            query ? filteredMovies?.total_pages : !popularMovies?.total_pages
-          }
-        />
-      </Container>
+      {query && !filteredMovies?.total_results ? (
+        <NoResult query={query} />
+      ) : (
+        <Container>
+          <section>
+            <SectionTitle>
+              {query
+                ? `Search results for "${query}" (${filteredMovies?.total_results})`
+                : "Popular movies"}
+            </SectionTitle>
+            <GridList>
+              {!query &&
+                popularMovies?.results?.map((movie) => (
+                  <li key={movie.id}>
+                    <Link href="/movies-browser/movies">
+                      <Tile
+                        id={movie.id}
+                        title={movie.title}
+                        poster_path={movie.poster_path}
+                        vote_average={movie.vote_average}
+                        vote_count={movie.vote_count}
+                        relase_date={movie.relase_date}
+                        genre_ids={movie.genre_ids}
+                      />
+                    </Link>
+                  </li>
+                ))}
+              {!!query &&
+                filteredMovies?.results?.map((query) => (
+                  <li key={query.id}>
+                    <Link href="/movies-browser/movies">
+                      <Tile
+                        id={query.id}
+                        title={query.title}
+                        poster_path={query.poster_path}
+                        vote_average={query.vote_average}
+                        vote_count={query.vote_count}
+                        relase_date={query.relase_date}
+                        genre_ids={query.genre_ids}
+                      />
+                    </Link>
+                  </li>
+                ))}
+            </GridList>
+          </section>
+          <Pagination
+            total_pages={
+              query ? filteredMovies?.total_pages : !popularMovies?.total_pages
+            }
+          />
+        </Container>
+      )}
     </Main>
   );
 }
