@@ -14,6 +14,9 @@ export const apiConfig = {
   movies: {
     endpoint: `${commonEndpoints.movie}/popular`,
   },
+  moviesDetailsAndCredits: {
+    endpoint: `${commonEndpoints.movie}/`,
+  },
   people: {
     endpoint: `${commonEndpoints.person}/popular`,
   },
