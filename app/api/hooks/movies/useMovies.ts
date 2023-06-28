@@ -6,10 +6,11 @@ interface moviesProps {
   page: number;
 }
 
-export const fetchMovieData = async ({ page }: moviesProps) => {
+export const fetchMoviesData = async ({ page }: moviesProps) => {
   const response = await axiosInstance.get<MoviesResponse>(
     `${apiConfig.movies.endpoint}`,
     { params: { page } }
   );
-  return response.data;
+  return response.data; 
 };
+
