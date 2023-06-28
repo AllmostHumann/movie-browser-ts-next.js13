@@ -1,12 +1,11 @@
 import Image from "next/image";
 import noMoviePoster from "./images/noMoviePoster.png";
-import noPersonPoster from "./images/noPersonPoster.png";
 import Star from "./images/star.svg";
-import { Genres } from "../Genres/genres";
+import { Genres } from "../../Genres/genres";
 import { apiConfig } from "@/app/api/config/apiRoutes";
-import { MoviesListResult } from "../../api/types/movies/movies";
+import { MoviesListResult } from "../../../api/types/movies/movies";
 
-export const Tile = (movie: MoviesListResult) => {
+export const MovieTile = (movie: MoviesListResult) => {
   return (
     <div
       key={movie.id}
