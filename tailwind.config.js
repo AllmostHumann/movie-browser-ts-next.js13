@@ -11,7 +11,7 @@ export const theme = {
       white: "#FFFFFF",
       black: "#000000",
       smoke: "#18181B",
-      stormGray: "#74788B",
+      stormGrey: "#74788B",
       mystic: "#E4E6F0",
       silver: "#C4C4C4",
       waterloo: "#7E839A",
@@ -25,6 +25,8 @@ export const theme = {
       2: "repeat(2, 1fr)",
       3: "repeat(3, 1fr)",
       4: "repeat(4, 1fr)",
+      5: "minmax(114px, 312px) auto",
+      6: "114px auto",
       auto: "auto, 1fr",
     },
     gridTemplateRows: {
@@ -35,6 +37,12 @@ export const theme = {
         "0%": { transform: "rotate(0deg)" },
         "100%": { transform: "rotate(360deg)" },
       },
+    },
+    backgroundImage: {
+      "background-pattern-desktop":
+        "url('/app/components/MoviePage/Poster/images/backgroundPatternDesktop.svg')",
+      "background-pattern-mobile":
+        "url('/app/components/MoviePage/Poster/images/backgroundPatternMobile.svg')",
     },
   },
 };
