@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useQueries } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
-import { fetchMovieData } from "@/app/api/hooks/movies/useMovies";
+import { fetchMoviesData } from "@/app/api/hooks/movies/useMovies";
 import { Container } from "@/app/components/Container/container";
 import { Main } from "@/app/components/Main/main";
 import { GridList } from "@/app/components/GridList/gridList";
-import { Tile } from "@/app/components/Tile/tile";
+import { MovieTile } from "@/app/components/Tiles/MovieTile/movieTile";
 import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { Pagination } from "@/app/components/Pagination/pagination";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
@@ -25,7 +25,7 @@ export default function PopularMovies() {
     queries: [
       {
         queryKey: ["moviesList", { page }],
-        queryFn: () => fetchMovieData({ page }),
+        queryFn: () => fetchMoviesData({ page }),
         keepPreviousData: true,
       },
       {
@@ -68,12 +68,12 @@ export default function PopularMovies() {
                 ? `Search results for "${query}" (${filteredMovies?.total_results})`
                 : "Popular movies"}
             </SectionTitle>
-            <GridList>
+            <GridList credits={false}>
               {!query &&
                 popularMovies?.results?.map((movie) => (
                   <li key={movie.id}>
-                    <Link href="/movies-browser/movies">
-                      <Tile
+                    <Link href={`/movies-browser/movie/${movie.id}`}>
+                      <MovieTile
                         id={movie.id}
                         title={movie.title}
                         poster_path={movie.poster_path}
@@ -88,8 +88,8 @@ export default function PopularMovies() {
               {!!query &&
                 filteredMovies?.results?.map((query) => (
                   <li key={query.id}>
-                    <Link href="/movies-browser/movies">
-                      <Tile
+                    <Link href={`/movies-browser/movie/${query.id}`}>
+                      <MovieTile
                         id={query.id}
                         title={query.title}
                         poster_path={query.poster_path}

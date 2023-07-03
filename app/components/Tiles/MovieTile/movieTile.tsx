@@ -25,7 +25,6 @@ export const MovieTile = (movie: MoviesListResult) => {
         unoptimized
         priority
       />
-
       <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[4px] md:justify-between md:gap-[8px]">
         {movie.title && (
           <h1 className="mt-[16px] text-[22px] font-medium leading-[1.3] decoration-smoke max-md:my-0 max-md:ml-[8px] max-md:mr-0 max-md:text-[16px]">
