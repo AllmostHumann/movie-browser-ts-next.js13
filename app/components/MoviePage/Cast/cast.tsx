@@ -8,9 +8,17 @@ export const Cast = ({ credits }: { credits: CastMember[] | undefined }) => {
   return (
     <Container>
       <section>
-        <SectionTitle>Cast</SectionTitle>
+        <SectionTitle
+          list={false}
+          movieDetails={true}
+        >
+          Cast
+        </SectionTitle>
         {credits && credits.length > 0 && (
-          <GridList credits={true}>
+          <GridList
+            people={true}
+            movies={false}
+          >
             {credits?.map((cast) => (
               <li key={cast.cast_id}>
                 <PersonTile

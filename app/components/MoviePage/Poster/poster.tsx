@@ -26,6 +26,7 @@ export const Poster = ({
             </h1>
             <Rating
               poster={true}
+              about={false}
               averageVotes={details?.vote_average?.toFixed(1)}
               voteAmount={details?.vote_count}
             />

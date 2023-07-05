@@ -42,8 +42,6 @@ export default function MovieDetails() {
     error: creditsError,
   } = movieCredits;
 
-  console.log(credits);
-
   if (detailsLoading && creditsLoading) {
     return <LoadingPage />;
   }
@@ -52,10 +50,15 @@ export default function MovieDetails() {
     return <ErrorPage />;
   }
 
+  console.log(details);
+
   return (
     <>
       <Poster details={details} />
-      <Main>
+      <Main
+        moviesList={false}
+        moviePage={true}
+      >
         <Container>
           <About details={details} />
           <Cast credits={credits?.cast} />

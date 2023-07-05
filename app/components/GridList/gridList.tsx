@@ -1,16 +1,15 @@
+import classNames from "classnames";
+
 export const GridList = (props: {
   children: React.ReactNode;
-  credits: boolean;
+  movies: boolean;
+  people: boolean;
 }) => {
-  return (
-    <div
-      className={`${
-        !!props.credits
-          ? "m-0 grid list-none grid-cols-2 justify-center gap-[16px] p-0 sm:grid-cols-2 sm:gap-[16px] md:grid-cols-3 md:gap-[16px] xl:grid-cols-4 xl:gap-[24px]"
-          : "m-0 grid list-none grid-cols-1 justify-center gap-[16px] p-0 sm:grid-cols-2 sm:gap-[16px] md:grid-cols-3 md:gap-[16px] xl:grid-cols-4 xl:gap-[24px] "
-      }`}
-    >
-      {props.children}
-    </div>
-  );
+  const classes = classNames({
+    "m-0 p-0 grid gap-[16px] md:gap-[24px] justify-center list-none": true,
+    "grid-cols-8 md:grid-cols-7": props.people,
+    "grid-cols-10 md:grid-cols-9": props.movies,
+  });
+
+  return <div className={classes}>{props.children}</div>;
 };

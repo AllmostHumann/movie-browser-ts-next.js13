@@ -57,18 +57,27 @@ export default function PopularMovies() {
   }
 
   return (
-    <Main>
+    <Main
+      moviesList={true}
+      moviePage={false}
+    >
       {query && !filteredMovies?.total_results ? (
         <NoResult query={query} />
       ) : (
         <Container>
           <section>
-            <SectionTitle>
+            <SectionTitle
+              list={true}
+              movieDetails={false}
+            >
               {query
                 ? `Search results for "${query}" (${filteredMovies?.total_results})`
                 : "Popular movies"}
             </SectionTitle>
-            <GridList credits={false}>
+            <GridList
+              people={false}
+              movies={true}
+            >
               {!query &&
                 popularMovies?.results?.map((movie) => (
                   <li key={movie.id}>
@@ -79,7 +88,7 @@ export default function PopularMovies() {
                         poster_path={movie.poster_path}
                         vote_average={movie.vote_average}
                         vote_count={movie.vote_count}
-                        relase_date={movie.relase_date}
+                        release_date={movie.release_date}
                         genre_ids={movie.genre_ids}
                       />
                     </Link>
@@ -95,7 +104,7 @@ export default function PopularMovies() {
                         poster_path={query.poster_path}
                         vote_average={query.vote_average}
                         vote_count={query.vote_count}
-                        relase_date={query.relase_date}
+                        release_date={query.release_date}
                         genre_ids={query.genre_ids}
                       />
                     </Link>

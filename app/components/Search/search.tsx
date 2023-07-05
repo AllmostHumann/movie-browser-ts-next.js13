@@ -32,7 +32,7 @@ export const Search = () => {
         <Image
           src={SearchIcon}
           alt="searchIcon"
-          className="h-[21px] w-[16px] text-waterloo md:w-[21px]"
+          className="h-auto w-[16px] text-waterloo md:w-[21px]"
         />
       </div>
       <DebounceInput
