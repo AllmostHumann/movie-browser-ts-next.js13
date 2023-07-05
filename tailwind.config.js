@@ -27,10 +27,18 @@ export const theme = {
       4: "repeat(4, 1fr)",
       5: "minmax(114px, 312px) auto",
       6: "114px auto",
+      7: "repeat(auto-fill, minmax(208px, 1fr))",
+      8: "repeat(auto-fill, minmax(136px, 1fr))",
+      9: "repeat(auto-fill, minmax(324px, 1fr))",
+      10: "repeat(auto-fill, minmax(288px, 1fr))",
       auto: "auto, 1fr",
     },
     gridTemplateRows: {
       1: "auto, 1fr",
+    },
+    gridTemplateAreas: {
+      layout: ["p i", "p d", "p e"],
+      layoutMovile: ["p i", "p i", "d d"],
     },
     keyframes: {
       spin: {
@@ -52,4 +60,5 @@ export const plugins = [
   require("@tailwindcss/forms"),
   require("@tailwindcss/aspect-ratio"),
   require("@tailwindcss/container-queries"),
+  require("@savvywombat/tailwindcss-grid-areas"),
 ];
