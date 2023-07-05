@@ -2,7 +2,7 @@ export interface MoviesListResult {
   id?: number;
   title?: string;
   poster_path?: string | null;
-  relase_date?: string;
+  release_date?: string;
   backdrop_path?: string | null;
   genre_ids?: number[];
   vote_count?: number;
