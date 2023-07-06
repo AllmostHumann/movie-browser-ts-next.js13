@@ -81,7 +81,7 @@ export default function PopularMovies() {
               {!query &&
                 popularMovies?.results?.map((movie) => (
                   <li key={movie.id}>
-                    <Link href={`/movies-browser/movie/${movie.id}`}>
+                    <Link href={`/movies-browser/movies/movie/${movie.id}`}>
                       <MovieTile
                         id={movie.id}
                         title={movie.title}
@@ -97,7 +97,7 @@ export default function PopularMovies() {
               {!!query &&
                 filteredMovies?.results?.map((query) => (
                   <li key={query.id}>
-                    <Link href={`/movies-browser/movie/${query.id}`}>
+                    <Link href={`/movies-browser/movies/movie/${query.id}`}>
                       <MovieTile
                         id={query.id}
                         title={query.title}
