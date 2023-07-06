@@ -31,6 +31,7 @@ export const theme = {
       8: "repeat(auto-fill, minmax(136px, 1fr))",
       9: "repeat(auto-fill, minmax(324px, 1fr))",
       10: "repeat(auto-fill, minmax(288px, 1fr))",
+      11: "auto,minmax(205px,432px)",
       auto: "auto, 1fr",
     },
     gridTemplateRows: {
