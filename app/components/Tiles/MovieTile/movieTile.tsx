@@ -36,11 +36,10 @@ export const MovieTile = ({
             ? `${apiConfig.posters.endpoint}${poster_path}`
             : noMoviePoster
         }
-        className="h-[169px] w-[114px] rounded-[5px] object-contain md:h-auto md:w-full"
-        width={0}
-        height={0}
-        alt=""
-        unoptimized
+        className="aspect-[3/4] h-auto rounded-[5px] object-contain md:w-full"
+        width={114}
+        height={169}
+        alt="moviePoster"
         priority
       />
       <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[4px] md:justify-between md:gap-[8px]">
@@ -58,11 +57,9 @@ export const MovieTile = ({
         {vote_average && vote_count ? (
           <div className="flex items-center px-[8px] py-0">
             <Image
-              className="h-[16px] w-[16px] md:h-[21px] md:w-[24px]"
+              className="h-[16px] w-auto md:h-[21px] md:w-auto"
               src={Star}
               alt="star"
-              width={24}
-              height={21}
             />
             <span className="my-0 ml-[10px] mr-0 text-[13px] font-semibold leading-[130%] text-smoke md:text-[16px] md:leading-[150%]">
               {vote_average}
@@ -73,11 +70,9 @@ export const MovieTile = ({
           </div>
         ) : (
           <Image
-            className="h-[16px] w-[16px] md:h-[21px] md:w-[24px]"
+            className="h-[16px] w-auto md:h-[21px] md:w-auto"
             src={Star}
             alt="star"
-            width={24}
-            height={21}
           />
         )}
       </div>

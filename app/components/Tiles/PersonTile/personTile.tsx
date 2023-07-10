@@ -30,11 +30,10 @@ export const PersonTile = ({
             ? `${apiConfig.posters.endpoint}${profile_path}`
             : noPersonPoster
         }
-        className="aspect-[3/4] w-[100%] rounded-[5px] object-contain"
-        width={0}
-        height={0}
+        className="aspect-[3/4] h-auto w-[100%] rounded-[5px] object-contain md:w-full"
+        width={114}
+        height={169}
         alt="personPoster"
-        unoptimized
         priority
       />
       <p className="mt-[8px] break-words text-center text-[14px] font-medium md:mt-[12px] md:text-[22px]">

@@ -43,10 +43,10 @@ export const About = ({
             <div className="flex flex-wrap">
               <span className="hidden md:mr-[10px] md:block ">Production:</span>
               <span className="hidden md:block md:text-[18px]">
-                {details?.production_countries[0].name}
+                {details?.production_countries[0]?.name}
               </span>
               <span className="inline md:hidden md:text-[12px]">
-                {details?.production_countries[0].iso_3166_1}
+                {details?.production_countries[0]?.iso_3166_1}
               </span>
             </div>
           )}
