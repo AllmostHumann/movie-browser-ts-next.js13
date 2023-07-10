@@ -1,6 +1,9 @@
 "use client";
 
 import { useQueries } from "@tanstack/react-query";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import qs from "qs";
 import { Main } from "@/app/components/Main/main";
 import { Container } from "@/app/components/Container/container";
 import { About } from "@/app/components/MoviePage/About/about";
@@ -11,10 +14,25 @@ import { fetchMovieDetails } from "@/app/api/hooks/movies/useMovieDetails";
 import { fetchMovieCredits } from "@/app/api/hooks/movies/useMovieCredits";
 import { LoadingPage } from "@/app/components/Status/Loading/loading";
 import { ErrorPage } from "@/app/components/Status/Error/error";
-import { useParams } from "next/navigation";
+import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
 export default function MovieDetails() {
   const { id } = useParams();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const query = searchParams.get(searchQueryParamName) || null;
+
+  useEffect(() => {
+    if (query) {
+      router.replace(
+        `/movies-browser/movies?` +
+          qs.stringify(
+            { [searchQueryParamName]: query, page: 1 },
+            { skipNulls: true }
+          )
+      );
+    }
+  }, [query, router]);
 
   const [movieDetails, movieCredits] = useQueries({
     queries: [
@@ -49,8 +67,6 @@ export default function MovieDetails() {
   if (detailsError && creditsError instanceof Error) {
     return <ErrorPage />;
   }
-
-  console.log(details);
 
   return (
     <>
