@@ -1,4 +1,4 @@
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "qs";
 import Image from "next/image";
 import VectorNext from "./images/VectorNext.svg";
@@ -15,20 +15,20 @@ export const Pagination = ({
   const currentPage = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName);
   const totalPages = query ? total_pages : (total_pages = 500);
+  const pathname = usePathname();
 
   const goToFirstPage = () => {
     if (currentPage !== 1) {
       query
         ? router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: 1 },
                 { skipNulls: true }
               )
           )
         : router.replace(
-            `/movies-browser/movies?` +
-              qs.stringify({ page: 1 }, { skipNulls: true })
+            `${pathname}?` + qs.stringify({ page: 1 }, { skipNulls: true })
           );
     }
   };
@@ -38,14 +38,14 @@ export const Pagination = ({
       const previousPage = currentPage - 1;
       query
         ? router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: previousPage },
                 { skipNulls: true }
               )
           )
         : router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify({ page: previousPage }, { skipNulls: true })
           );
     }
@@ -56,14 +56,14 @@ export const Pagination = ({
       const nextPage = currentPage + 1;
       query
         ? router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: nextPage },
                 { skipNulls: true }
               )
           )
         : router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify({ page: nextPage }, { skipNulls: true })
           );
     }
@@ -73,14 +73,14 @@ export const Pagination = ({
     if (currentPage !== totalPages) {
       query
         ? router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: totalPages },
                 { skipNulls: true }
               )
           )
         : router.replace(
-            `/movies-browser/movies?` +
+            `${pathname}?` +
               qs.stringify({ page: totalPages }, { skipNulls: true })
           );
     }
