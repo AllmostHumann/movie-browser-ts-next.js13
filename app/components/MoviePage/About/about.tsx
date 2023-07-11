@@ -13,7 +13,7 @@ export const About = ({
     <div className="grid-y-[16px] mt-[16px] grid grid-cols-6 justify-center gap-[16px] bg-white p-[16px] shadow-[0px_4px_12px_0px#bac7d57f] grid-areas-layoutMovile md:mt-[64px] md:grid-cols-5 md:gap-x-[40px] md:p-[40px] md:grid-areas-layout">
       {details?.poster_path ? (
         <Image
-          className="w-[100%] rounded-[5px] grid-in-p"
+          className="w-full rounded-[5px] grid-in-p"
           src={`${apiConfig.posters.endpoint}${details.poster_path}`}
           alt="moviePoster"
           width={0}
@@ -23,7 +23,7 @@ export const About = ({
         />
       ) : (
         <Image
-          className="w-[100%] rounded-[5px] grid-in-p"
+          className="w-full rounded-[5px] grid-in-p"
           src={placeholderImage}
           alt="placeholderImage"
         />
@@ -55,7 +55,7 @@ export const About = ({
             {details?.release_date?.replaceAll("-", ".")}
           </div>
         </div>
-        <div className="flex gap-[8px] md:flex-wrap md:gap-[16px]">
+        <div className="flex gap-[8px] flex-wrap md:gap-[16px]">
           {details?.genres?.map((genre) => (
             <div
               className="rounded-[5px] bg-mystic px-[8px] py-[4px] text-[10px] md:px-[16px] md:py-[8px] md:text-[14px]"

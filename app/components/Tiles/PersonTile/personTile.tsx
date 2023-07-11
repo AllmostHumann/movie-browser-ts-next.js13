@@ -22,7 +22,7 @@ export const PersonTile = ({
   return (
     <div
       id={`${id}`}
-      className="h-[100%] rounded-[5px] p-[8px] text-center shadow-[0px_4px_12px_0px#bac7d57f] transition-all duration-[170ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] hover:translate-y-[-8px] hover:cursor-pointer hover:shadow-[0px_8px_20px_5px_#A1BAE2] active:translate-y-[-8px] md:p-[16px]"
+      className="h-full rounded-[5px] p-[8px] text-center shadow-[0px_4px_12px_0px#bac7d57f] transition-all duration-[170ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] hover:translate-y-[-8px] hover:cursor-pointer hover:shadow-[0px_8px_20px_5px_#A1BAE2] active:translate-y-[-8px] md:p-[16px]"
     >
       <Image
         src={
@@ -30,10 +30,11 @@ export const PersonTile = ({
             ? `${apiConfig.posters.endpoint}${profile_path}`
             : noPersonPoster
         }
-        className="aspect-[3/4] h-auto w-[100%] rounded-[5px] object-contain md:w-full"
+        className="aspect-[3/4] w-full rounded-[5px] object-cover"
         width={114}
         height={169}
         alt="personPoster"
+        unoptimized
         priority
       />
       <p className="mt-[8px] break-words text-center text-[14px] font-medium md:mt-[12px] md:text-[22px]">

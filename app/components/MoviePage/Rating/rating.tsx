@@ -31,7 +31,7 @@ export const Rating = ({
 
   const votesAmount = classNames({
     "text-[10px] md:text-[16px]": poster,
-    "text-[13px] md:text-[14px]": about,
+    "translate-y-[1px] md:translate-y-0 text-[13px] md:text-[14px]": about,
   });
 
   return (

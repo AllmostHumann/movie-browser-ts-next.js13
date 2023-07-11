@@ -36,10 +36,11 @@ export const MovieTile = ({
             ? `${apiConfig.posters.endpoint}${poster_path}`
             : noMoviePoster
         }
-        className="aspect-[3/4] h-auto rounded-[5px] object-contain md:w-full"
+        className="aspect-[2/3] h-auto rounded-[5px] object-cover md:w-full"
         width={114}
         height={169}
         alt="moviePoster"
+        unoptimized
         priority
       />
       <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[4px] md:justify-between md:gap-[8px]">
