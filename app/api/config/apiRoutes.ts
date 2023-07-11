@@ -20,6 +20,9 @@ export const apiConfig = {
   people: {
     endpoint: `${commonEndpoints.person}/popular`,
   },
+  personDetailsAndCredits: {
+    endpoint: `${commonEndpoints.person}`,
+  },
   posters: {
     endpoint: `${apiImagesBaseUrl}/original`,
   },

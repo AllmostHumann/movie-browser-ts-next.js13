@@ -1,6 +1,6 @@
 import { axiosInstance } from "../../utilities/axiosInstance";
 import { apiConfig } from "../../config/apiRoutes";
-import { MoviesResponse } from "../../types/movies/movies";
+import { MoviesResponse } from "../../types/movies/popularMovies";
 
 interface moviesProps {
   page: number;
