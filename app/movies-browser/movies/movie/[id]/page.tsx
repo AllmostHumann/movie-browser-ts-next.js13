@@ -72,8 +72,8 @@ export default function MovieDetails() {
     <>
       <Poster details={details} />
       <Main
-        moviesList={false}
-        moviePage={true}
+        list={false}
+        page={true}
       >
         <Container>
           <About details={details} />

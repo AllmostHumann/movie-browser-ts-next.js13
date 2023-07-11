@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useQueries } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { fetchMoviesData } from "@/app/api/hooks/movies/useMovies";
+import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
+import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 import { Container } from "@/app/components/Container/container";
 import { Main } from "@/app/components/Main/main";
 import { GridList } from "@/app/components/GridList/gridList";
 import { MovieTile } from "@/app/components/Tiles/MovieTile/movieTile";
 import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { Pagination } from "@/app/components/Pagination/pagination";
-import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
-import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
 import { ErrorPage } from "@/app/components/Status/Error/error";
 import { LoadingPage } from "@/app/components/Status/Loading/loading";
 import { NoResult } from "@/app/components/Status/NoResult/noResult";
@@ -58,8 +58,8 @@ export default function PopularMovies() {
 
   return (
     <Main
-      moviesList={true}
-      moviePage={false}
+      list={true}
+      page={false}
     >
       {query && !filteredMovies?.total_results ? (
         <NoResult query={query} />
@@ -68,7 +68,7 @@ export default function PopularMovies() {
           <section>
             <SectionTitle
               list={true}
-              movieDetails={false}
+              details={false}
             >
               {query
                 ? `Search results for "${query}" (${filteredMovies?.total_results})`

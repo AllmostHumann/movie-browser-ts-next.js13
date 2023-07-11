@@ -1,7 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { fetchGenresData } from "@/app/api/hooks/genres/useGenres";
-import { MoviesListResult } from "@/app/api/types/movies/movies";
+import { MoviesListResult } from "@/app/api/types/movies/popularMovies";
 
 export const Genres = (movies: MoviesListResult) => {
   const { data } = useQuery({

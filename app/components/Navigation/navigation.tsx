@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export function Navigation() {
   const pathname = usePathname();
-  const { id } = useParams();
 
   const link = [
     {
@@ -17,8 +16,6 @@ export function Navigation() {
       href: "/movies-browser/people",
     },
   ];
-
-  href: `/movies-browser/movie/${id}`;
 
   return (
     <nav className="ml-[30px] flex list-none gap-[12px] p-0 md:m-0 md:gap-[16px]">

@@ -10,7 +10,7 @@ export const Crew = ({ credits }: { credits: CrewMember[] | undefined }) => {
       <section>
         <SectionTitle
           list={false}
-          movieDetails={true}
+          details={true}
         >
           Crew
         </SectionTitle>

@@ -10,7 +10,7 @@ export const Cast = ({ credits }: { credits: CastMember[] | undefined }) => {
       <section>
         <SectionTitle
           list={false}
-          movieDetails={true}
+          details={true}
         >
           Cast
         </SectionTitle>
