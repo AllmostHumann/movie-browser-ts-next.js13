@@ -1,3 +1,9 @@
+"use client";
+
+export default function PersonDetails() {
+  return <div></div>;
+}
+
 // "use client";
 
 // import { useQueries } from "@tanstack/react-query";
