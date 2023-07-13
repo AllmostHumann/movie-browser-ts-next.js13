@@ -12,7 +12,7 @@ export const NoResult = ({ query }: { query: string | null }) => {
       <Image
         src={NoSearchResultImage}
         alt="noSearchResultImage"
-        className="scale-80 self-center duration-[0.5s] md:scale-100"
+        className="scale-[.80] self-center duration-[0.5s] md:scale-100"
       ></Image>
     </div>
   );

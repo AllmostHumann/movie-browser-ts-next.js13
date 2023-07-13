@@ -29,7 +29,7 @@ export default function PopularPeople() {
         keepPreviousData: true,
       },
       {
-        queryKey: ["searchMovie", { query, page }],
+        queryKey: ["searchPerson", { query, page }],
         queryFn: () => fetchPersonQuery({ query, page }),
         keepPreviousData: true,
         enabled: !!query,

@@ -6,10 +6,10 @@ import { useEffect } from "react";
 import qs from "qs";
 import { Main } from "@/app/components/Main/main";
 import { Container } from "@/app/components/Container/container";
-import { About } from "@/app/components/MoviePage/About/about";
-import { Cast } from "@/app/components/MoviePage/Cast/cast";
-import { Crew } from "@/app/components/MoviePage/Crew/crew";
-import { Poster } from "@/app/components/MoviePage/Poster/poster";
+import { About } from "@/app/components/Pages/MoviePage/About/about";
+import { Cast } from "@/app/components/Pages/MoviePage/Cast/cast";
+import { Crew } from "@/app/components/Pages/MoviePage/Crew/crew";
+import { Poster } from "@/app/components/Pages/MoviePage/Poster/poster";
 import { fetchMovieDetails } from "@/app/api/hooks/movies/useMovieDetails";
 import { fetchMovieCredits } from "@/app/api/hooks/movies/useMovieCredits";
 import { LoadingPage } from "@/app/components/Status/Loading/loading";
@@ -49,16 +49,8 @@ export default function MovieDetails() {
     ],
   });
 
-  const {
-    data: details,
-    isLoading: detailsLoading,
-    error: detailsError,
-  } = movieDetails;
-  const {
-    data: credits,
-    isLoading: creditsLoading,
-    error: creditsError,
-  } = movieCredits;
+  const { isLoading: detailsLoading, error: detailsError } = movieDetails;
+  const { isLoading: creditsLoading, error: creditsError } = movieCredits;
 
   if (detailsLoading && creditsLoading) {
     return <LoadingPage />;
@@ -70,15 +62,15 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Poster details={details} />
+      <Poster />
       <Main
         list={false}
         page={true}
       >
         <Container>
-          <About details={details} />
-          <Cast credits={credits?.cast} />
-          <Crew credits={credits?.crew} />
+          <About />
+          <Cast />
+          <Crew />
         </Container>
       </Main>
     </>
