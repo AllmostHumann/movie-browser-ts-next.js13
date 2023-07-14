@@ -1,5 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { Container } from "@/app/components/Container/container";
 import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { GridList } from "@/app/components/GridList/gridList";
@@ -28,12 +29,14 @@ export const Crew = () => {
         >
           {data?.crew?.map((crew) => (
             <li key={crew.credit_id}>
-              <PersonTile
-                id={crew.id}
-                profile_path={crew.profile_path}
-                name={crew.name}
-                job={crew.job}
-              />
+              <Link href={`/movies-browser/people/person/${crew.id}`}>
+                <PersonTile
+                  id={crew.id}
+                  profile_path={crew.profile_path}
+                  name={crew.name}
+                  job={crew.job}
+                />
+              </Link>
             </li>
           ))}
         </GridList>
