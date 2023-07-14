@@ -21,7 +21,7 @@ export const apiConfig = {
     endpoint: `${commonEndpoints.person}/popular`,
   },
   personDetailsAndCredits: {
-    endpoint: `${commonEndpoints.person}`,
+    endpoint: `${commonEndpoints.person}/`,
   },
   posters: {
     endpoint: `${apiImagesBaseUrl}/original`,
