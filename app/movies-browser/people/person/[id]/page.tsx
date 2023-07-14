@@ -15,7 +15,7 @@ import { LoadingPage } from "@/app/components/Status/Loading/loading";
 import { ErrorPage } from "@/app/components/Status/Error/error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
-export default function MovieDetails() {
+export default function PersonDetails() {
   const { id } = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
