@@ -29,9 +29,10 @@ export const theme = {
       6: "114px auto",
       7: "repeat(auto-fill, minmax(208px, 1fr))",
       8: "repeat(auto-fill, minmax(136px, 1fr))",
-      9: "repeat(auto-fill, minmax(324px, 1fr))",
-      10: "repeat(auto-fill, minmax(288px, 1fr))",
-      11: "auto,minmax(205px,432px)",
+      9: "auto,minmax(205px,432px)",
+      10: "minmax(auto, 215px)",
+      11: "minmax(auto, 114px)",
+      12: "minmax(116px, 399px) auto",
       auto: "auto, 1fr",
     },
     gridTemplateRows: {
@@ -39,7 +40,7 @@ export const theme = {
     },
     gridTemplateAreas: {
       layout: ["p i", "p d", "p e"],
-      layoutMovile: ["p i", "p i", "d d"],
+      layoutMovie: ["p i", "p i", "d d"],
     },
     keyframes: {
       spin: {
