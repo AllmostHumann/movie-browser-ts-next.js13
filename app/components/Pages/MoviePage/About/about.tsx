@@ -15,8 +15,8 @@ export const About = () => {
   ]);
 
   return (
-    <div className="grid-y-[16px] mt-[16px] grid grid-cols-6 justify-center gap-[16px] bg-white p-[16px] shadow-[0px_4px_12px_0px#bac7d57f] grid-areas-layoutMovile md:mt-[64px] md:grid-cols-5 md:gap-x-[40px] md:p-[40px] md:grid-areas-layout">
-      <div className="relative aspect-[2/3] min-h-[169px] rounded-[5px] grid-in-p">
+    <div className="grid-y-[16px] mt-[16px] grid grid-cols-6 justify-center gap-[16px] bg-white p-[16px] shadow-[0px_4px_12px_0px#bac7d57f] grid-areas-layoutMovie md:mt-[64px] md:grid-cols-5 md:gap-x-[40px] md:p-[40px] md:grid-areas-layout">
+      <div className="relative aspect-[2/3] min-h-[169px] overflow-hidden rounded-[5px] grid-in-p">
         <Image
           src={
             data?.poster_path
