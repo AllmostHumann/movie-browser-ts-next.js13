@@ -3,7 +3,7 @@ import { apiConfig } from "../../config/apiRoutes";
 import { MovieDetailsResponse } from "../../types/movies/moviesDetails";
 
 interface movieDetailsProps {
-  id: string;
+  id: string | string[];
 }
 
 export const fetchMovieDetails = async ({ id }: movieDetailsProps) => {

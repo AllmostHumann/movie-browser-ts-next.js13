@@ -3,13 +3,12 @@ import { apiConfig } from "../../config/apiRoutes";
 import { PersonCreditsResponse } from "../../types/people/personCredits";
 
 interface personCreditsProps {
-  id: string;
+  id: string | string[];
 }
 
 export const fetchPersonCredits = async ({ id }: personCreditsProps) => {
   const response = await axiosInstance.get<PersonCreditsResponse>(
-    `${apiConfig.personDetailsAndCredits.endpoint}/${id}/movie_credits`,
-    
+    `${apiConfig.personDetailsAndCredits.endpoint}/${id}/movie_credits`
   );
   return response.data;
 };

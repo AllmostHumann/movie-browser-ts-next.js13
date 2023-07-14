@@ -3,7 +3,7 @@ import { apiConfig } from "../../config/apiRoutes";
 import { PersonDetailsResponse } from "../../types/people/personDetails";
 
 interface personDetailsProps {
-  id: string;
+  id: string | string[];
 }
 
 export const fetchPersonDetails = async ({ id }: personDetailsProps) => {
