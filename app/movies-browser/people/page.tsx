@@ -2,6 +2,7 @@
 
 import { useQueries } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { fetchPeopleData } from "@/app/api/hooks/people/usePeople";
 import { fetchPersonQuery } from "@/app/api/hooks/queries/useQuery";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
@@ -12,7 +13,6 @@ import { Main } from "@/app/components/Main/main";
 import { Container } from "@/app/components/Container/container";
 import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { GridList } from "@/app/components/GridList/gridList";
-import Link from "next/link";
 import { PersonTile } from "@/app/components/Tiles/PersonTile/personTile";
 import { Pagination } from "@/app/components/Pagination/pagination";
 

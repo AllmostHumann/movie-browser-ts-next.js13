@@ -6,7 +6,7 @@
 
 ## Before you start
 
-The project carves out a base version of a group project I had the pleasure of participating in. I used the time spent creating this version of the application to learn Next.js 13, TypeScript, Tailwindcss, TanStack Query. I also had the opportunity to use some interesting and helpful packages during development. Once the project will be completed, everything will be detailed in the description below. 
+The project carves out a base version of a group project I had the pleasure of participating in ([Check it here](https://github.com/AllmostHumann/movie-browser)) . I used the time spent creating this version of the application to learn Next.js 13, TypeScript, Tailwindcss, TanStack Query. I also had the opportunity to use some interesting and helpful packages during development. Once the project will be completed, everything will be detailed in the description below.
 
 Once I have created a counterpart to the original project, I also plan to add some improvements and additions, so I strongly encourage you to follow the changes!
 
@@ -17,11 +17,11 @@ Cheers!
 A fully responsive movie browser that pulls data from the [MoviesDB](https://developers.themoviedb.org/3/getting-started) API. On the site, users can search using the implemented search engine for movies, actors, and crew.
 The main page displays a list of the most popular movies in the form of tiles with basic data such as, poster, title, year of production, and category. To enter the details of a movie, just click on the selected tile. In the details you will find a description, list of actors, and crew.
 
-![Movies Browser] TBA
+![Movies Browser](public/gif/moviePage.gif)
 
 The second tab is dedicated to the most popular actors. A list of actors by name is displayed in tile form. When you click on the selected tile, you will be taken to a page with details about the selected person, where you will see a list of films in which the actor played.
 
-![People Browser] TBA
+![People Browser](public/gif//peoplePage.gif)
 
 ## Technologies
 
@@ -29,8 +29,8 @@ The second tab is dedicated to the most popular actors. A list of actors by name
 - TypeScritp,
 - Tailwind Css,
 - Axios,
-- TanStackQuery,
-- Classnames,
+- TanStack Query,
+- classnames,
 - Qs,
 - Tailwindcss-grid-areas,
 
