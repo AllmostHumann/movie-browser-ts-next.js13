@@ -1,5 +1,3 @@
-"use client";
-
 import { fetchMovieVideo } from "@/app/api/hooks/movies/useMovieVideos";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";

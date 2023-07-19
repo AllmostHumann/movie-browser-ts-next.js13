@@ -29,7 +29,6 @@ export const About = () => {
           priority
         />
       </div>
-
       <div className="mb-0 flex flex-col gap-[8px] justify-self-start grid-in-i md:mb-[24px] md:gap-[24px]">
         <h1
           className="m-0 text-[16px] font-medium leading-[120%] md:text-[36px] md:font-semibold"

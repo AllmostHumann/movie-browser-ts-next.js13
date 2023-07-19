@@ -1,6 +1,5 @@
-import Image from "next/image";
-import StarIcon from "./images/star.svg";
 import classNames from "classnames";
+import StarIcon from "./images/star.svg";
 
 export const Rating = ({
   voteAmount,
@@ -37,11 +36,7 @@ export const Rating = ({
   return (
     <div className={container}>
       <div className="flex items-center gap-[8px]">
-        <Image
-          src={StarIcon}
-          alt="starIcon"
-          className={starIcon}
-        />
+        <StarIcon />
         <div>
           <span className={votesAverage}>{averageVotes}</span>
         </div>

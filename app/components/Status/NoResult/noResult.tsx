@@ -1,7 +1,4 @@
-"use client";
-
-import NoSearchResultImage from "../Images/noResult.svg";
-import Image from "next/image";
+import NoSearchResultImage from "../images/noResult.svg";
 
 export const NoResult = ({ query }: { query: string | null }) => {
   return (
@@ -9,11 +6,7 @@ export const NoResult = ({ query }: { query: string | null }) => {
       <h1 className="mb-[10px] ml-[12px] mr-0 mt-0 text-[20px] font-medium leading-[130%] duration-[0.5s] md:mb-[40px] md:text-[36px] md:font-semibold md:leading-[120%]">
         Sorry, there are no results for “{query}”
       </h1>
-      <Image
-        src={NoSearchResultImage}
-        alt="noSearchResultImage"
-        className="scale-[.80] self-center duration-[0.5s] md:scale-100"
-      ></Image>
+      <NoSearchResultImage className="w-[668px] h-[509px] scale-[.80] self-center duration-[0.5s] md:scale-100" />
     </div>
   );
 };

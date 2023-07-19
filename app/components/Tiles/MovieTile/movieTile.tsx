@@ -47,11 +47,7 @@ export const MovieTile = ({
         {genre_ids && <Genres genre_ids={genre_ids} />}
         {vote_average && vote_count ? (
           <div className="flex items-center px-[8px] py-0">
-            <Image
-              className="h-[16px] w-auto md:h-[21px] md:w-auto"
-              src={Star}
-              alt="star"
-            />
+            <Star className="h-[16px] w-auto md:h-[21px] md:w-auto" />
             <span className="my-0 ml-[10px] mr-0 text-[13px] font-semibold leading-[130%] text-smoke md:text-[16px] md:leading-[150%]">
               {vote_average}
             </span>
