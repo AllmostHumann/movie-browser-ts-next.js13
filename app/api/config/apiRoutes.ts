@@ -26,6 +26,15 @@ export const apiConfig = {
   posters: {
     endpoint: `${apiImagesBaseUrl}/original`,
   },
+  posterW154: {
+    endpoint: `${apiImagesBaseUrl}/w154`,
+  },
+  posterW400: {
+    endpoint: `${apiImagesBaseUrl}/w400`,
+  },
+  posterW780: {
+    endpoint: `${apiImagesBaseUrl}/w780`,
+  },
   genres: {
     endpoint: `${commonEndpoints.genre}/movie/list`,
   },
