@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import DangerIcon from "../images/danger.svg";
+import DangerIcon from "@/app/components/Status/images/danger.svg";
 
 export const ErrorPage = () => {
   return (
