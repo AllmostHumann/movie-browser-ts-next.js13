@@ -4,9 +4,11 @@ import Image from "next/image";
 import { Rating } from "../Rating/rating";
 import { MovieDetailsResponse } from "@/app/api/types/movies/moviesDetails";
 import { apiConfig } from "@/app/api/config/apiRoutes";
+import useBreakpoint from "@/app/api/hooks/breakpoints/useBreakpoint";
 
 export const Poster = () => {
   const { id } = useParams();
+  const breakpoint = useBreakpoint();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<MovieDetailsResponse>([
     "movieDetails",
@@ -16,14 +18,26 @@ export const Poster = () => {
     <>
       <div className="relative flex justify-center bg-black text-white">
         <div className="absolute h-full w-full bg-background-gradient-mobile md:bg-background-gradient-desktop" />
-        <Image
-          src={`${apiConfig.posters.endpoint}${data?.backdrop_path}`}
-          alt="backgroundImage"
-          width={1280}
-          height={720}
-          priority
-          sizes="75vw"
-        />
+        {breakpoint < 768 && (
+          <Image
+            src={`${apiConfig.posterW400.endpoint}${data?.backdrop_path}`}
+            alt="backgroundImage"
+            width={680}
+            height={400}
+            unoptimized
+            priority
+          />
+        )}
+        {breakpoint > 768 && (
+          <Image
+            src={`${apiConfig.posterW780.endpoint}${data?.backdrop_path}`}
+            alt="backgroundImage"
+            width={1280}
+            height={720}
+            unoptimized
+            priority
+          />
+        )}
         {/* <button
           type="button"
           className="absolute grid place-self-center cursor-pointer"

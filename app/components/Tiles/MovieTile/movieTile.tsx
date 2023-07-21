@@ -4,6 +4,7 @@ import Star from "./images/star.svg";
 import { Genres } from "../../Genres/genres";
 import { apiConfig } from "@/app/api/config/apiRoutes";
 import { MoviesListResult } from "@/app/api/types/movies/popularMovies";
+import useBreakpoint from "../../../api/hooks/breakpoints/useBreakpoint";
 
 export const MovieTile = ({
   id,
@@ -14,6 +15,8 @@ export const MovieTile = ({
   vote_count,
   vote_average,
 }: MoviesListResult) => {
+  const breakpoint = useBreakpoint();
+
   return (
     <div
       key={id}
@@ -21,17 +24,32 @@ export const MovieTile = ({
       className="grid h-full grid-cols-auto grid-rows-1 rounded-[5px] p-[12px] shadow-[0px_4px_12px_0px#bac7d57f] transition-all duration-[170ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] hover:translate-y-[-8px] hover:cursor-pointer hover:shadow-[0px_8px_20px_5px_#A1BAE2] active:translate-y-[-8px] md:grid-cols-1 md:p-[16px]"
     >
       <div className="relative aspect-[2/3] min-h-[169px] overflow-hidden rounded-[5px]">
-        <Image
-          src={
-            poster_path
-              ? `${apiConfig.posters.endpoint}${poster_path}`
-              : noMoviePoster
-          }
-          alt="moviePoster"
-          sizes="(max-width: 640px) 10vw, (max-width: 1024px) 20vw, 33vw"
-          fill
-          priority
-        />
+        {breakpoint < 768 && (
+          <Image
+            src={
+              poster_path
+                ? `${apiConfig.posterW154.endpoint}${poster_path}`
+                : noMoviePoster
+            }
+            alt="moviePoster"
+            fill
+            unoptimized
+            priority
+          />
+        )}
+        {breakpoint > 768 && (
+          <Image
+            src={
+              poster_path
+                ? `${apiConfig.posterW400.endpoint}${poster_path}`
+                : noMoviePoster
+            }
+            alt="moviePoster"
+            fill
+            unoptimized
+            priority
+          />
+        )}
       </div>
       <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[4px] md:justify-between md:gap-[8px]">
         {title && (

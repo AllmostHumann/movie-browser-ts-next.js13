@@ -4,9 +4,11 @@ import Image from "next/image";
 import placeholderImage from "./../../../Tiles/MovieTile/images/noMoviePoster.png";
 import { apiConfig } from "@/app/api/config/apiRoutes";
 import { PersonDetailsResponse } from "@/app/api/types/people/personDetails";
+import useBreakpoint from "@/app/api/hooks/breakpoints/useBreakpoint";
 
 export const About = () => {
   const { id } = useParams();
+  const breakpoint = useBreakpoint();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<PersonDetailsResponse>([
     "personDetails",
@@ -18,17 +20,32 @@ export const About = () => {
   return (
     <div className="grid-y-[16px] mt-[16px] grid grid-cols-11 justify-center gap-[16px] bg-white p-[16px] grid-areas-layoutMovie md:mt-[64px] md:grid-cols-10 md:gap-x-[40px] md:p-[40px] md:grid-areas-layoutMovie lg:grid-cols-12 lg:grid-areas-layout ">
       <div className="relative aspect-[2/3] min-h-[169px] overflow-hidden rounded-[5px] grid-in-p">
-        <Image
-          src={
-            data?.profile_path
-              ? `${apiConfig.posters.endpoint}${data?.profile_path}`
-              : placeholderImage
-          }
-          alt="moviePoster"
-          sizes="(max-width: 640px) 10vw, (max-width: 1024px) 20vw, 33vw"
-          fill
-          priority
-        />
+        {breakpoint < 768 && (
+          <Image
+            src={
+              data?.profile_path
+                ? `${apiConfig.posterW154.endpoint}${data?.profile_path}`
+                : placeholderImage
+            }
+            alt="moviePoster"
+            unoptimized
+            fill
+            priority
+          />
+        )}
+        {breakpoint > 768 && (
+          <Image
+            src={
+              data?.profile_path
+                ? `${apiConfig.posterW400.endpoint}${data?.profile_path}`
+                : placeholderImage
+            }
+            alt="moviePoster"
+            unoptimized
+            fill
+            priority
+          />
+        )}
       </div>
       <div className="mb-0 flex flex-col gap-[8px] justify-self-start grid-in-i md:mb-[24px] md:gap-[24px]">
         <h1 className="m-0 text-[16px] font-medium leading-[120%] md:text-[36px] md:font-semibold">

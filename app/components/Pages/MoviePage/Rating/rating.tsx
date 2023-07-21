@@ -36,7 +36,7 @@ export const Rating = ({
   return (
     <div className={container}>
       <div className="flex items-center gap-[8px]">
-        <StarIcon />
+        <StarIcon className={starIcon} />
         <div>
           <span className={votesAverage}>{averageVotes}</span>
         </div>

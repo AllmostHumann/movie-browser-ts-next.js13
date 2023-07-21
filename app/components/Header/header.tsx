@@ -12,7 +12,7 @@ export const Header = () => {
             href="/movies-browser/movies"
             className="decoration-none flex items-center gap-[8px] text-white md:gap-[12px]"
           >
-            <Icon className="h-[17px] w-[17px] shrink-0 md:h-[40px] md:w-[40px]" />
+            <Icon className="translate-y-[-1px] h-[17px] w-[17px] shrink-0 md:h-[40px] md:w-[40px]" />
             <p className="shrink-0 text-[13px] font-medium md:text-[24px]">
               Movies Browser
             </p>
