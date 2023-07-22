@@ -17,34 +17,36 @@ export const Crew = () => {
 
   return (
     <Container>
-      <section>
-        <SectionTitle
-          list={false}
-          details={true}
-        >
-          Crew
-        </SectionTitle>
-        <GridList
-          movies={true}
-          people={false}
-        >
-          {data?.crew?.map((movie) => (
-            <li key={movie.id}>
-              <Link href={`/movies-browser/movies/movie/${movie.id}`}>
-                <MovieTile
-                  id={movie.id}
-                  title={movie.title}
-                  poster_path={movie.poster_path}
-                  vote_average={movie.vote_average}
-                  vote_count={movie.vote_count}
-                  release_date={movie.release_date}
-                  genre_ids={movie.genre_ids}
-                />
-              </Link>
-            </li>
-          ))}
-        </GridList>
-      </section>
+      {data?.crew && data.crew.length > 0 && (
+        <section>
+          <SectionTitle
+            list={false}
+            details={true}
+          >
+            Movies - crew ({data.crew.length})
+          </SectionTitle>
+          <GridList
+            movies={true}
+            people={false}
+          >
+            {data?.crew?.map((movie) => (
+              <li key={movie.id}>
+                <Link href={`/movies-browser/movies/movie/${movie.id}`}>
+                  <MovieTile
+                    id={movie.id}
+                    title={movie.title}
+                    poster_path={movie.poster_path}
+                    vote_average={movie.vote_average}
+                    vote_count={movie.vote_count}
+                    release_date={movie.release_date}
+                    genre_ids={movie.genre_ids}
+                  />
+                </Link>
+              </li>
+            ))}
+          </GridList>
+        </section>
+      )}
     </Container>
   );
 };
