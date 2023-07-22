@@ -1,4 +1,4 @@
-import NoSearchResultImage from "@/app/components/Status/images/noResult.svg";
+import NoSearchResultImage from "./images/noResult.svg";
 
 export const NoResult = ({ query }: { query: string | null }) => {
   return (

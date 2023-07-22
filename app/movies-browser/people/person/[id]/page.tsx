@@ -10,8 +10,8 @@ import { Container } from "@/app/components/Container/container";
 import { About } from "@/app/components/Pages/PersonPage/About/about";
 import { Cast } from "@/app/components/Pages/PersonPage/Cast/cast";
 import { Crew } from "@/app/components/Pages/PersonPage/Crew/crew";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { ErrorPage } from "@/app/components/Status/Error/error";
+import { LoadingPage } from "@/app/components/Status/loading";
+import { ErrorPage } from "@/app/components/Status/error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
 export default function PersonDetails() {

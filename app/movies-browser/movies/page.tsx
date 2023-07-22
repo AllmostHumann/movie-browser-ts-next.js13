@@ -11,9 +11,9 @@ import { GridList } from "@/app/components/GridList/gridList";
 import { MovieTile } from "@/app/components/Tiles/MovieTile/movieTile";
 import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
 import { Pagination } from "@/app/components/Pagination/pagination";
-import { ErrorPage } from "@/app/components/Status/Error/error";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { NoResult } from "@/app/components/Status/NoResult/noResult";
+import { ErrorPage } from "@/app/components/Status/error";
+import { LoadingPage } from "@/app/components/Status/loading";
+import { NoResult } from "@/app/components/Status/noResult";
 
 export default function PopularMovies() {
   const searchParams = useSearchParams();

@@ -11,8 +11,8 @@ import { About } from "@/app/components/Pages/MoviePage/About/about";
 import { Cast } from "@/app/components/Pages/MoviePage/Cast/cast";
 import { Crew } from "@/app/components/Pages/MoviePage/Crew/crew";
 import { Poster } from "@/app/components/Pages/MoviePage/Poster/poster";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { ErrorPage } from "@/app/components/Status/Error/error";
+import { LoadingPage } from "@/app/components/Status/loading";
+import { ErrorPage } from "@/app/components/Status/error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
 export default function MovieDetails() {

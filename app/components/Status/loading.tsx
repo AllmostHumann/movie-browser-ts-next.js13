@@ -1,4 +1,4 @@
-import { Main } from "../../Main/main";
+import { Main } from "../Main/main";
 
 export const LoadingPage = () => {
   return (
