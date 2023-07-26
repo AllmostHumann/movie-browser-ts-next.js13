@@ -19,6 +19,7 @@ export const theme = {
       scienceBlue: "#0044CC",
       snuff: "#DDDDEE",
       linkWater: "#D3DEF3",
+      mercury: "#ffffffbf",
     },
     gridTemplateColumns: {
       1: "1fr",

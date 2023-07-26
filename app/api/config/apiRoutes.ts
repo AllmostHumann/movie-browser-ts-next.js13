@@ -35,6 +35,9 @@ export const apiConfig = {
   posterW780: {
     endpoint: `${apiImagesBaseUrl}/w780`,
   },
+  posterW1280: {
+    endpoint: `${apiImagesBaseUrl}/w1280`,
+  },
   genres: {
     endpoint: `${commonEndpoints.genre}/movie/list`,
   },
