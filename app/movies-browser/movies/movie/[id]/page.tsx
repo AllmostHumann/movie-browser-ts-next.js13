@@ -1,5 +1,4 @@
 "use client";
-
 import { useQueries } from "@tanstack/react-query";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -15,6 +14,7 @@ import { Poster } from "@/app/components/Pages/MoviePage/Poster/poster";
 import { LoadingPage } from "@/app/components/Status/Loading/loading";
 import { ErrorPage } from "@/app/components/Status/Error/error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
+import { Player } from "@/app/components/Player/player";
 
 export default function MovieDetails() {
   const { id } = useParams();

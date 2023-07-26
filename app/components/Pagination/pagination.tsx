@@ -1,6 +1,5 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "qs";
-import Image from "next/image";
 import VectorNext from "./images/VectorNext.svg";
 import VectorPrevious from "./images/VectorPrevious.svg";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
@@ -93,16 +92,8 @@ export const Pagination = ({
         disabled={currentPage <= 1}
         className="transition-bg mr-[8px] flex cursor-pointer items-center rounded-[5px] border-none bg-pattensBlue px-[12px] py-[8px] duration-100 active:bg-linkWater disabled:pointer-events-none disabled:bg-mystic md:mr-[12px] "
       >
-        <Image
-          className="mx-[4px] my-0 md:block md:text-scienceBlue"
-          src={VectorPrevious}
-          alt="first"
-        />
-        <Image
-          className="mx-[4px] my-0 md:hidden md:text-scienceBlue"
-          src={VectorPrevious}
-          alt="first"
-        />
+        <VectorPrevious className="w-[7px] h-[12px] mx-[4px] my-0 md:block md:text-scienceBlue" />
+        <VectorPrevious className="w-[7px] h-[12px] mx-[4px] my-0 md:hidden md:text-scienceBlue" />
         <p className="hidden object-none md:mx-[4px] md:my-0 md:block">First</p>
       </button>
       <button
@@ -110,16 +101,8 @@ export const Pagination = ({
         disabled={currentPage <= 1}
         className="transition-bg mr-[8px] flex cursor-pointer items-center rounded-[5px] border-none bg-pattensBlue px-[12px] py-[8px] duration-100 active:bg-linkWater disabled:pointer-events-none disabled:bg-mystic md:mr-[12px] "
       >
-        <Image
-          className="mx-[4px] my-0 hidden md:block md:text-scienceBlue"
-          src={VectorPrevious}
-          alt="previous"
-        />
-        <Image
-          className="mx-[4px] my-0 md:hidden md:text-scienceBlue"
-          src={VectorPrevious}
-          alt="previous"
-        />
+        <VectorPrevious className="w-[7px] h-[12px] mx-[4px] my-0 md:block md:text-scienceBlue" />
+        <VectorPrevious className="w-[7px] h-[12px] mx-[4px] my-0 md:hidden md:text-scienceBlue" />
         <p className="hidden object-none md:mx-[4px] md:my-0 md:block">
           Previous
         </p>
@@ -140,16 +123,8 @@ export const Pagination = ({
         className="transition-bg mr-[8px] flex cursor-pointer items-center rounded-[5px] border-none bg-pattensBlue px-[12px] py-[8px] duration-100 active:bg-linkWater disabled:pointer-events-none disabled:bg-mystic md:mr-[12px] "
       >
         <p className="hidden object-none md:mx-[4px] md:my-0 md:block">Next</p>
-        <Image
-          className="mx-[4px] my-0 hidden md:block md:text-scienceBlue"
-          src={VectorNext}
-          alt="next"
-        />
-        <Image
-          className="mx-[4px] my-0 md:hidden md:text-scienceBlue"
-          src={VectorNext}
-          alt="next"
-        />
+        <VectorNext className="w-[7px] h-[12px] mx-[4px] my-0 hidden md:block md:text-scienceBlue" />
+        <VectorNext className="w-[7px] h-[12px] mx-[4px] my-0 md:hidden md:text-scienceBlue" />
       </button>
       <button
         onClick={goToLastPage}
@@ -157,16 +132,8 @@ export const Pagination = ({
         className="transition-bg mr-[8px] flex cursor-pointer items-center rounded-[5px] border-none bg-pattensBlue px-[12px] py-[8px] duration-100 active:bg-linkWater disabled:pointer-events-none disabled:bg-mystic md:mr-[12px] "
       >
         <p className="hidden object-none md:mx-[4px] md:my-0 md:block">Last</p>
-        <Image
-          className="mx-[4px] my-0 md:block md:text-scienceBlue"
-          src={VectorNext}
-          alt="last"
-        />
-        <Image
-          className="mx-[4px] my-0 md:hidden md:text-scienceBlue"
-          src={VectorNext}
-          alt="last"
-        />
+        <VectorNext className="w-[7px] h-[12px] mx-[4px] my-0 md:block md:text-scienceBlue" />
+        <VectorNext className="w-[7px] h-[12px] mx-[4px] my-0 md:hidden md:text-scienceBlue" />
       </button>
     </div>
   );

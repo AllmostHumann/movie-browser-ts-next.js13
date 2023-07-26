@@ -1,8 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
-import Icon from "./images/moviesIcon.svg";
 import { Search } from "@/app/components/Search/search";
 import { Navigation } from "@/app/components/Navigation/navigation";
+import Icon from "./images/moviesIcon.svg";
 
 export const Header = () => {
   return (
@@ -13,11 +12,7 @@ export const Header = () => {
             href="/movies-browser/movies"
             className="decoration-none flex items-center gap-[8px] text-white md:gap-[12px]"
           >
-            <Image
-              src={Icon}
-              alt="icon"
-              className="h-[17px] w-[17px] shrink-0 md:h-[40px] md:w-[40px]"
-            />
+            <Icon className="translate-y-[-1px] h-[17px] w-[17px] shrink-0 md:h-[40px] md:w-[40px]" />
             <p className="shrink-0 text-[13px] font-medium md:text-[24px]">
               Movies Browser
             </p>

@@ -24,7 +24,6 @@ export const Cast = () => {
         >
           Cast
         </SectionTitle>
-
         <GridList
           people={true}
           movies={false}

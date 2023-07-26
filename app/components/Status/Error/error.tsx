@@ -1,17 +1,11 @@
 "use client";
-
-import Image from "next/image";
-import DangerIcon from "../Images/danger.svg";
 import Link from "next/link";
+import DangerIcon from "./images/danger.svg";
 
 export const ErrorPage = () => {
   return (
     <div className="scale-70 md:scale-85 mx-[0] my-[198px] flex flex-col items-center justify-center duration-[0.5s]">
-      <Image
-        src={DangerIcon}
-        alt="DangerIcon"
-        className="m-[14px] h-[100px] w-[100px]"
-      />
+      <DangerIcon className="m-[14px] h-[100px] w-[100px]" />
       <h1 className="text-center text-[36px] font-semibold leading-[120%] text-smoke">
         Ooops! Something went wrong...
       </h1>

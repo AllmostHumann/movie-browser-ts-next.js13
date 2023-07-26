@@ -1,13 +1,11 @@
 "use client";
-
-import Image from "next/image";
+import { DebounceInput } from "react-debounce-input";
+import { usePathname } from "next/navigation";
 import SearchIcon from "./images/searchIcon.svg";
 import { useReplaceQueryParameter } from "@/app/api/hooks/queries/useReplaceQueryParameter";
 import useQueryParameter, {
   searchQueryParamName,
 } from "@/app/api/hooks/queries/useQueryParameter";
-import { DebounceInput } from "react-debounce-input";
-import { usePathname } from "next/navigation";
 
 export const Search = () => {
   const pathname = usePathname();
@@ -29,11 +27,7 @@ export const Search = () => {
       className="flex items-center"
     >
       <div className="flex h-[44px] w-[35px] items-center justify-end rounded-l-[33px] bg-white text-waterloo md:h-[44px] md:w-[50px]">
-        <Image
-          src={SearchIcon}
-          alt="searchIcon"
-          className="h-auto w-[16px] text-waterloo md:w-[21px]"
-        />
+        <SearchIcon className="w-[21px] h-[21px]" />
       </div>
       <DebounceInput
         value={query || ""}
