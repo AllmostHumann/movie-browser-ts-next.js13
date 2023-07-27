@@ -33,6 +33,9 @@ The second tab is dedicated to the most popular actors. A list of actors by name
 - classnames,
 - Qs,
 - Tailwindcss-grid-areas,
+- SVGR webpack,
+- React-player,
+- React-modal
 
 ## Getting Started
 

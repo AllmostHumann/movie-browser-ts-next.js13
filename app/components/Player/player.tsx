@@ -5,6 +5,7 @@ import ReactPlayer from "react-player/youtube";
 import Modal from "react-modal";
 import { useState } from "react";
 import PlayButton from "./images/playButton.svg";
+import CloseButton from "./images/closeButton.svg";
 
 export const Player = () => {
   const { id } = useParams();
@@ -49,6 +50,9 @@ export const Player = () => {
           controls
           playing
         />
+        <button className="absolute top-0 right-0" onClick={handleCloseModal}>
+          <CloseButton className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] text-white" />
+        </button>
       </Modal>
     </>
   );
