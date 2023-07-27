@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { ScrollButton } from "../ScrollButton/ScrollButton";
 
 export const Main = (props: {
   children: React.ReactNode;
@@ -8,8 +9,13 @@ export const Main = (props: {
   const classes = classNames({
     "px-[24px] md:px-[16px]": true,
     "pb-[16px] pt-[32px] md:pb-[40px] md:pt-[56px]": props.list,
-    "py-0": props.page,
+    "py-[24px]": props.page,
   });
 
-  return <main className={classes}>{props.children}</main>;
+  return (
+    <main className={classes}>
+      <ScrollButton />
+      {props.children}
+    </main>
+  );
 };
