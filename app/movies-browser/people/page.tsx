@@ -5,15 +5,15 @@ import Link from "next/link";
 import { fetchPeopleData } from "@/app/api/hooks/people/usePeople";
 import { fetchPersonQuery } from "@/app/api/hooks/queries/useQuery";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { ErrorPage } from "@/app/components/Status/Error/error";
-import { NoResult } from "@/app/components/Status/NoResult/noResult";
-import { Main } from "@/app/components/Main/main";
-import { Container } from "@/app/components/Container/container";
-import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
-import { GridList } from "@/app/components/GridList/gridList";
-import { PersonTile } from "@/app/components/Tiles/PersonTile/personTile";
-import { Pagination } from "@/app/components/Pagination/pagination";
+import { LoadingPage } from "@/app/components/Status/Loading/Loading";
+import { ErrorPage } from "@/app/components/Status/Error/Error";
+import { NoResult } from "@/app/components/Status/NoResult/NoResult";
+import { Main } from "@/app/components/Main/Main";
+import { Container } from "@/app/components/Container/Container";
+import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
+import { GridList } from "@/app/components/GridList/GridList";
+import { PersonTile } from "@/app/components/Tiles/PersonTile/PersonTile";
+import { Pagination } from "@/app/components/Pagination/Pagination";
 
 export default function PopularPeople() {
   const searchParams = useSearchParams();
@@ -56,27 +56,18 @@ export default function PopularPeople() {
   }
 
   return (
-    <Main
-      list={true}
-      page={false}
-    >
+    <Main list={true} page={false}>
       {query && !filteredPersons?.total_results ? (
         <NoResult query={query} />
       ) : (
         <Container>
           <section>
-            <SectionTitle
-              list={true}
-              details={false}
-            >
+            <SectionTitle list={true} details={false}>
               {query
                 ? `Search results for "${query}" (${filteredPersons?.total_results})`
                 : "Popular people"}
             </SectionTitle>
-            <GridList
-              people={true}
-              movies={false}
-            >
+            <GridList people={true} movies={false}>
               {!query &&
                 popularPeople?.results?.map((person) => (
                   <li key={person.id}>

@@ -1,9 +1,9 @@
-import { fetchMovieVideo } from "@/app/api/hooks/movies/useMovieVideos";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
+import { fetchMovieVideo } from "@/app/api/hooks/movies/useMovieVideos";
 import ReactPlayer from "react-player/youtube";
 import Modal from "react-modal";
-import { useState } from "react";
 import PlayButton from "./images/playButton.svg";
 import CloseButton from "./images/closeButton.svg";
 

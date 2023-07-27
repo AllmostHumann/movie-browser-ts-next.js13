@@ -1,10 +1,10 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { Container } from "@/app/components/Container/container";
-import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
-import { GridList } from "@/app/components/GridList/gridList";
-import { PersonTile } from "@/app/components/Tiles/PersonTile/personTile";
+import { Container } from "@/app/components/Container/Container";
+import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
+import { GridList } from "@/app/components/GridList/GridList";
+import { PersonTile } from "@/app/components/Tiles/PersonTile/PersonTile";
 import { MovieCreditsResponse } from "@/app/api/types/movies/moviesCredits";
 
 export const Cast = () => {
@@ -18,16 +18,10 @@ export const Cast = () => {
   return (
     <Container>
       <section>
-        <SectionTitle
-          list={false}
-          details={true}
-        >
+        <SectionTitle list={false} details={true}>
           Cast
         </SectionTitle>
-        <GridList
-          people={true}
-          movies={false}
-        >
+        <GridList people={true} movies={false}>
           {data?.cast?.map((cast) => (
             <li key={cast.cast_id}>
               <Link href={`/movies-browser/people/person/${cast.id}`}>

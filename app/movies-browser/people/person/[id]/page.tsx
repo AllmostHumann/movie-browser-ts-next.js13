@@ -5,13 +5,13 @@ import { useEffect } from "react";
 import qs from "qs";
 import { fetchPersonDetails } from "@/app/api/hooks/people/usePersonDetails";
 import { fetchPersonCredits } from "@/app/api/hooks/people/usePersonCredits";
-import { Main } from "@/app/components/Main/main";
-import { Container } from "@/app/components/Container/container";
-import { About } from "@/app/components/Pages/PersonPage/About/about";
-import { Cast } from "@/app/components/Pages/PersonPage/Cast/cast";
-import { Crew } from "@/app/components/Pages/PersonPage/Crew/crew";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { ErrorPage } from "@/app/components/Status/Error/error";
+import { Main } from "@/app/components/Main/Main";
+import { Container } from "@/app/components/Container/Container";
+import { About } from "@/app/components/Pages/PersonPage/About/About";
+import { Cast } from "@/app/components/Pages/PersonPage/Cast/Cast";
+import { Crew } from "@/app/components/Pages/PersonPage/Crew/Crew";
+import { LoadingPage } from "@/app/components/Status/Loading/Loading";
+import { ErrorPage } from "@/app/components/Status/Error/Error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
 export default function PersonDetails() {
