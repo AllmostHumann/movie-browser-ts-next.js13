@@ -41,7 +41,7 @@ export const Poster = () => {
         )}
         <Player />
         <div className="absolute bottom-[8px] left-[clamp(1rem,_-2.25rem_+_16.25vw,_17.25rem)] grid gap-[6px] md:bottom-[56px] md:gap-[25px]">
-          <h1 className="m-0 text-[clamp(1.5rem,_1rem_+_2.5vw,_4rem)] font-semibold leading-[120%]">
+          <h1 className="m-0 text-[clamp(0.5rem,_1rem_+_1.5vw,_4rem)] font-semibold leading-[120%]">
             {data?.original_title}
           </h1>
           <Rating
