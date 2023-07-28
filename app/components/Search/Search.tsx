@@ -22,10 +22,7 @@ export const Search = () => {
   };
 
   return (
-    <div
-      onSubmit={onFormSubmit}
-      className="flex items-center"
-    >
+    <div onSubmit={onFormSubmit} className="flex items-center">
       <div className="flex h-[44px] w-[35px] items-center justify-end rounded-l-[33px] bg-white text-waterloo md:h-[44px] md:w-[50px]">
         <SearchIcon className="w-[21px] h-[21px]" />
       </div>
@@ -33,7 +30,7 @@ export const Search = () => {
         value={query || ""}
         onChange={onInputChange}
         debounceTimeout={300}
-        className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-solid  border-mystic/0 bg-white p-[19px] text-black  placeholder:text-[16px]  focus:border-none focus:ring-0"
+        className="h-[44px] w-full rounded-l-[0] rounded-r-[33px] border-solid  border-mystic/0 bg-white p-[19px] text-black  placeholder:text-[16px]  focus:border-none focus:ring-0 outline-none"
         placeholder={
           pathname.includes("people")
             ? "Search for people..."

@@ -28,11 +28,11 @@ The second tab is dedicated to the most popular actors. A list of actors by name
 - Next.js 13,
 - TypeScritp,
 - Tailwind Css,
+- Tailwindcss-grid-areas,
 - Axios,
 - TanStack Query,
 - classnames,
 - Qs,
-- Tailwindcss-grid-areas,
 - SVGR webpack,
 - React-player,
 - React-modal
