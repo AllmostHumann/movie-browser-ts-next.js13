@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import ScrollUpIcon from "./images/scrollUp.svg";
 
@@ -12,7 +13,7 @@ export const ScrollButton = () => {
         setShowTopButton(false);
       }
     });
-  });
+  }, []);
 
   const scrollUp = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
