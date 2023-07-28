@@ -39,8 +39,8 @@ export const Player = () => {
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         ariaHideApp={false}
-        overlayClassName="fixed bg-black inset-0 overflow-hidden"
-        className="absolute top-[40px] left-[40px] right-[40px] bottom-[40px] p-[20px]"
+        overlayClassName="fixed bg-[#0f0f0f] inset-0"
+        className="absolute top-[40px] left-[40px] right-[40px] bottom-[40px] p-[40px]"
       >
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${renderTrailer?.key}`}
