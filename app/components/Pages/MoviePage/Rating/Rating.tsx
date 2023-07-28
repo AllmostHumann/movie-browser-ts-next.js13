@@ -20,7 +20,7 @@ export const Rating = ({
 
   const starIcon = classNames({
     "h-[16px] w-auto md:h-[38px] md:w-auto": poster,
-    "h-[16px] w-auto md:h-[22px] md:w-auto": about,
+    "h-[16px] w-auto md:h-[22px] md:w-auto translate-y-[-2px]": about,
   });
 
   const votesAverage = classNames({

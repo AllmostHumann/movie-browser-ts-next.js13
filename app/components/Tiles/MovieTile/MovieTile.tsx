@@ -51,7 +51,7 @@ export const MovieTile = ({
           />
         )}
       </div>
-      <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[4px] md:justify-between md:gap-[8px]">
+      <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[8px] md:justify-between">
         {title && (
           <h1 className="mt-[16px] text-[22px] font-medium leading-[1.3] text-smoke max-md:my-0 max-md:ml-[8px] max-md:mr-0 max-md:text-[16px]">
             {title}
@@ -65,8 +65,8 @@ export const MovieTile = ({
         {genre_ids && <Genres genre_ids={genre_ids} />}
         {vote_average && vote_count ? (
           <div className="flex items-center px-[8px] py-0">
-            <Star className="h-[16px] w-auto md:h-[21px] md:w-auto" />
-            <span className="my-0 ml-[10px] mr-0 text-[13px] font-semibold leading-[130%] text-smoke md:text-[16px] md:leading-[150%]">
+            <Star className="h-[16px] w-[16px] md:h-[21px] md:w-[21px] translate-y-[-3px]" />
+            <span className="my-0 ml-[10px] mr-0 text-[13px] font-semibold leading-[130%] text-smoke md:text-[16px] md:leading-[150%] ">
               {vote_average}
             </span>
             <span className="my-0 ml-[10px] mr-0 text-[13px] leading-[130%] text-waterloo md:text-[16px] md:leading-[150%]">

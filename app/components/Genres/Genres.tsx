@@ -9,11 +9,11 @@ export const Genres = (movies: MoviesListResult) => {
   });
 
   const filteredGenres = movies.genre_ids?.map(
-    (genre) => data?.filter(({ id }) => genre === id)
+    (genre) => data?.filter(({ id }) => genre === id),
   );
 
   return (
-    <div className="flex flex-wrap gap-[8px] text-[10px] font-normal leading-normal md:text-[14px]">
+    <div className="flex flex-wrap gap-[4px] text-[10px] font-normal leading-normal md:text-[14px]">
       {filteredGenres?.map(
         (genre) =>
           genre?.map(({ name }) => (
@@ -23,7 +23,7 @@ export const Genres = (movies: MoviesListResult) => {
             >
               {name}
             </div>
-          ))
+          )),
       )}
     </div>
   );
