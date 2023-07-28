@@ -1,11 +1,11 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { Container } from "@/app/components/Container/container";
-import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
-import { GridList } from "@/app/components/GridList/gridList";
+import { Container } from "@/app/components/Container/Container";
+import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
+import { GridList } from "@/app/components/GridList/GridList";
 import { PersonCreditsResponse } from "@/app/api/types/people/personCredits";
-import { MovieTile } from "@/app/components/Tiles/MovieTile/movieTile";
+import { MovieTile } from "@/app/components/Tiles/MovieTile/MovieTile";
 
 export const Crew = () => {
   const { id } = useParams();
@@ -19,16 +19,10 @@ export const Crew = () => {
     <Container>
       {data?.crew && data.crew.length > 0 && (
         <section>
-          <SectionTitle
-            list={false}
-            details={true}
-          >
+          <SectionTitle list={false} details={true}>
             Movies - crew ({data.crew.length})
           </SectionTitle>
-          <GridList
-            movies={true}
-            people={false}
-          >
+          <GridList movies={true} people={false}>
             {data?.crew?.map((movie) => (
               <li key={movie.id}>
                 <Link href={`/movies-browser/movies/movie/${movie.id}`}>

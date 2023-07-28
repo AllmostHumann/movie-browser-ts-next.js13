@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Search } from "@/app/components/Search/search";
-import { Navigation } from "@/app/components/Navigation/navigation";
+import { Search } from "@/app/components/Search/Search";
+import { Navigation } from "@/app/components/Navigation/Navigation";
 import Icon from "./images/moviesIcon.svg";
 
 export const Header = () => {

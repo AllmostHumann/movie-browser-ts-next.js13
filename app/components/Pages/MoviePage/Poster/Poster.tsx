@@ -1,11 +1,11 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { Rating } from "../Rating/rating";
+import { Rating } from "../Rating/Rating";
 import { MovieDetailsResponse } from "@/app/api/types/movies/moviesDetails";
 import { apiConfig } from "@/app/api/config/apiRoutes";
 import useBreakpoint from "@/app/api/hooks/breakpoints/useBreakpoint";
-import { Player } from "@/app/components/Player/player";
+import { Player } from "@/app/components/Player/Player";
 
 export const Poster = () => {
   const { id } = useParams();

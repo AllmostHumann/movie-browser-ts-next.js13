@@ -5,15 +5,15 @@ import { useSearchParams } from "next/navigation";
 import { fetchMoviesData } from "@/app/api/hooks/movies/useMovies";
 import { fetchMovieQuery } from "@/app/api/hooks/queries/useQuery";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
-import { Container } from "@/app/components/Container/container";
-import { Main } from "@/app/components/Main/main";
-import { GridList } from "@/app/components/GridList/gridList";
-import { MovieTile } from "@/app/components/Tiles/MovieTile/movieTile";
-import { SectionTitle } from "@/app/components/SectionTitle/sectionTitle";
-import { Pagination } from "@/app/components/Pagination/pagination";
-import { ErrorPage } from "@/app/components/Status/Error/error";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { NoResult } from "@/app/components/Status/NoResult/noResult";
+import { Container } from "@/app/components/Container/Container";
+import { Main } from "@/app/components/Main/Main";
+import { GridList } from "@/app/components/GridList/GridList";
+import { MovieTile } from "@/app/components/Tiles/MovieTile/MovieTile";
+import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
+import { Pagination } from "@/app/components/Pagination/Pagination";
+import { ErrorPage } from "@/app/components/Status/Error/Error";
+import { LoadingPage } from "@/app/components/Status/Loading/Loading";
+import { NoResult } from "@/app/components/Status/NoResult/NoResult";
 
 export default function PopularMovies() {
   const searchParams = useSearchParams();
@@ -56,27 +56,18 @@ export default function PopularMovies() {
   }
 
   return (
-    <Main
-      list={true}
-      page={false}
-    >
+    <Main list={true} page={false}>
       {query && !filteredMovies?.total_results ? (
         <NoResult query={query} />
       ) : (
         <Container>
           <section>
-            <SectionTitle
-              list={true}
-              details={false}
-            >
+            <SectionTitle list={true} details={false}>
               {query
                 ? `Search results for "${query}" (${filteredMovies?.total_results})`
                 : "Popular movies"}
             </SectionTitle>
-            <GridList
-              people={false}
-              movies={true}
-            >
+            <GridList people={false} movies={true}>
               {!query &&
                 popularMovies?.results?.map((movie) => (
                   <li key={movie.id}>

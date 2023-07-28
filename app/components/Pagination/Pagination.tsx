@@ -1,7 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "qs";
-import VectorNext from "./images/VectorNext.svg";
-import VectorPrevious from "./images/VectorPrevious.svg";
+import VectorNext from "./images/vectorNext.svg";
+import VectorPrevious from "./images/vectorPrevious.svg";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 
 export const Pagination = ({
@@ -23,11 +23,11 @@ export const Pagination = ({
             `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: 1 },
-                { skipNulls: true }
-              )
+                { skipNulls: true },
+              ),
           )
         : router.replace(
-            `${pathname}?` + qs.stringify({ page: 1 }, { skipNulls: true })
+            `${pathname}?` + qs.stringify({ page: 1 }, { skipNulls: true }),
           );
     }
   };
@@ -40,12 +40,12 @@ export const Pagination = ({
             `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: previousPage },
-                { skipNulls: true }
-              )
+                { skipNulls: true },
+              ),
           )
         : router.replace(
             `${pathname}?` +
-              qs.stringify({ page: previousPage }, { skipNulls: true })
+              qs.stringify({ page: previousPage }, { skipNulls: true }),
           );
     }
   };
@@ -58,12 +58,12 @@ export const Pagination = ({
             `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: nextPage },
-                { skipNulls: true }
-              )
+                { skipNulls: true },
+              ),
           )
         : router.replace(
             `${pathname}?` +
-              qs.stringify({ page: nextPage }, { skipNulls: true })
+              qs.stringify({ page: nextPage }, { skipNulls: true }),
           );
     }
   };
@@ -75,12 +75,12 @@ export const Pagination = ({
             `${pathname}?` +
               qs.stringify(
                 { [searchQueryParamName]: query, page: totalPages },
-                { skipNulls: true }
-              )
+                { skipNulls: true },
+              ),
           )
         : router.replace(
             `${pathname}?` +
-              qs.stringify({ page: totalPages }, { skipNulls: true })
+              qs.stringify({ page: totalPages }, { skipNulls: true }),
           );
     }
   };

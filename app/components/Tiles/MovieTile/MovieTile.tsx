@@ -1,7 +1,7 @@
 import Image from "next/image";
 import noMoviePoster from "./images/noMoviePoster.png";
 import Star from "./images/star.svg";
-import { Genres } from "../../Genres/genres";
+import { Genres } from "../../Genres/Genres";
 import { apiConfig } from "@/app/api/config/apiRoutes";
 import { MoviesListResult } from "@/app/api/types/movies/popularMovies";
 import useBreakpoint from "../../../api/hooks/breakpoints/useBreakpoint";

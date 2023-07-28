@@ -5,16 +5,16 @@ import { useEffect } from "react";
 import qs from "qs";
 import { fetchMovieDetails } from "@/app/api/hooks/movies/useMovieDetails";
 import { fetchMovieCredits } from "@/app/api/hooks/movies/useMovieCredits";
-import { Main } from "@/app/components/Main/main";
-import { Container } from "@/app/components/Container/container";
-import { About } from "@/app/components/Pages/MoviePage/About/about";
-import { Cast } from "@/app/components/Pages/MoviePage/Cast/cast";
-import { Crew } from "@/app/components/Pages/MoviePage/Crew/crew";
-import { Poster } from "@/app/components/Pages/MoviePage/Poster/poster";
-import { LoadingPage } from "@/app/components/Status/Loading/loading";
-import { ErrorPage } from "@/app/components/Status/Error/error";
+import { Main } from "@/app/components/Main/Main";
+import { Container } from "@/app/components/Container/Container";
+import { About } from "@/app/components/Pages/MoviePage/About/About";
+import { Cast } from "@/app/components/Pages/MoviePage/Cast/Cast";
+import { Crew } from "@/app/components/Pages/MoviePage/Crew/Crew";
+import { Poster } from "@/app/components/Pages/MoviePage/Poster/Poster";
+import { LoadingPage } from "@/app/components/Status/Loading/Loading";
+import { ErrorPage } from "@/app/components/Status/Error/Error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
-import { Player } from "@/app/components/Player/player";
+import { ScrollButton } from "@/app/components/ScrollButton/ScrollButton";
 
 export default function MovieDetails() {
   const { id } = useParams();
