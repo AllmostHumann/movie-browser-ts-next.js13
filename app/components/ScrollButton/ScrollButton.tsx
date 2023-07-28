@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import ScrollUpIcon from "./images/scrollUp.svg";
 
@@ -6,13 +5,14 @@ export const ScrollButton = () => {
   const [showTopButton, setShowTopButton] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
-        setShowTopButton(true);
-      } else {
-        setShowTopButton(false);
-      }
-    });
+    const handleScrollButtonVisiblity = () => {
+      window.scrollY > 500 ? setShowTopButton(true) : setShowTopButton(false);
+    };
+
+    window.addEventListener("scroll", handleScrollButtonVisiblity);
+    return () => {
+      window.removeEventListener("scroll", handleScrollButtonVisiblity);
+    };
   }, []);
 
   const scrollUp = () => {
