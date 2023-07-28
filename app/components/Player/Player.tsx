@@ -40,7 +40,7 @@ export const Player = () => {
         onRequestClose={handleCloseModal}
         ariaHideApp={false}
         overlayClassName="fixed bg-[#0f0f0f] inset-0"
-        className="absolute top-[40px] left-[40px] right-[40px] bottom-[40px]"
+        className="absolute top-[40px] left-[40px] right-[40px] bottom-[40px] outline-none"
       >
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${renderTrailer?.key}`}
@@ -49,7 +49,6 @@ export const Player = () => {
           muted
           controls
           playing
-          className="outline-none"
         />
         <button className="absolute top-0 right-0" onClick={handleCloseModal}>
           <CloseButton className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] text-white" />
