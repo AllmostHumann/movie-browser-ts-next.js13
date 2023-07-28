@@ -3,6 +3,7 @@ import Providers from "@/utils/provider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Header } from "@/app/components/Header/Header";
+import { ScrollButton } from "./components/ScrollButton/ScrollButton";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <ScrollButton />
         </Providers>
       </body>
     </html>
