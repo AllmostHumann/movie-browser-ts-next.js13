@@ -19,7 +19,7 @@ export const ScrollButton = () => {
   };
 
   return (
-    <button className="fixed right-0 bottom-0 md:w-[50px] md:h-[50px] w-[30px] h-[30px] z-[1]">
+    <button className="fixed right-2 bottom-2 w-[50px] h-[50px] z-[1]">
       {showTopButton && <ScrollUpIcon onClick={scrollUp} />}
     </button>
   );
