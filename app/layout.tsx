@@ -43,8 +43,8 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
-          <ScrollButton />
         </Providers>
+        <ScrollButton />
       </body>
     </html>
   );
