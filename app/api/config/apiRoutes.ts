@@ -26,11 +26,11 @@ export const apiConfig = {
   posters: {
     endpoint: `${apiImagesBaseUrl}/original`,
   },
-  posterW154: {
-    endpoint: `${apiImagesBaseUrl}/w154`,
+  posterW342: {
+    endpoint: `${apiImagesBaseUrl}/w342`,
   },
-  posterW400: {
-    endpoint: `${apiImagesBaseUrl}/w400`,
+  posterW500: {
+    endpoint: `${apiImagesBaseUrl}/w500`,
   },
   posterW780: {
     endpoint: `${apiImagesBaseUrl}/w780`,
