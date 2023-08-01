@@ -23,7 +23,7 @@ export const About = () => {
           <Image
             src={
               data?.poster_path
-                ? `${apiConfig.posterW154.endpoint}${data?.poster_path}`
+                ? `${apiConfig.posterW342.endpoint}${data?.poster_path}`
                 : placeholderImage
             }
             alt="moviePoster"
@@ -36,7 +36,7 @@ export const About = () => {
           <Image
             src={
               data?.poster_path
-                ? `${apiConfig.posterW400.endpoint}${data?.poster_path}`
+                ? `${apiConfig.posterW500.endpoint}${data?.poster_path}`
                 : placeholderImage
             }
             alt="moviePoster"
