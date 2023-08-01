@@ -26,7 +26,7 @@ The second tab is dedicated to the most popular actors. A list of actors by name
 ## Technologies
 
 - Next.js 13,
-- TypeScritp,
+- TypeScript,
 - Tailwind Css,
 - Tailwindcss-grid-areas,
 - Axios,
