@@ -26,7 +26,7 @@ export const PersonTile = ({
           <Image
             src={
               profile_path
-                ? `${apiConfig.posterW154.endpoint}${profile_path}`
+                ? `${apiConfig.posterW342.endpoint}${profile_path}`
                 : noPersonPoster
             }
             alt="personPoster"
@@ -39,7 +39,7 @@ export const PersonTile = ({
           <Image
             src={
               profile_path
-                ? `${apiConfig.posterW400.endpoint}${profile_path}`
+                ? `${apiConfig.posterW500.endpoint}${profile_path}`
                 : noPersonPoster
             }
             alt="personPoster"

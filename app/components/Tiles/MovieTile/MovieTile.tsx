@@ -28,7 +28,7 @@ export const MovieTile = ({
           <Image
             src={
               poster_path
-                ? `${apiConfig.posterW154.endpoint}${poster_path}`
+                ? `${apiConfig.posterW342.endpoint}${poster_path}`
                 : noMoviePoster
             }
             alt="moviePoster"
@@ -41,7 +41,7 @@ export const MovieTile = ({
           <Image
             src={
               poster_path
-                ? `${apiConfig.posterW400.endpoint}${poster_path}`
+                ? `${apiConfig.posterW500.endpoint}${poster_path}`
                 : noMoviePoster
             }
             alt="moviePoster"
@@ -64,7 +64,7 @@ export const MovieTile = ({
         )}
         {genre_ids && <Genres genre_ids={genre_ids} />}
         {vote_average && vote_count ? (
-          <div className="flex items-center px-[8px] py-0">
+          <div className="flex items-center px-[8px] py-0 mt-auto">
             <Star className="h-[16px] w-[16px] md:h-[21px] md:w-[21px] translate-y-[-3px]" />
             <span className="my-0 ml-[10px] mr-0 text-[13px] font-semibold leading-[130%] text-smoke md:text-[16px] md:leading-[150%] ">
               {vote_average}
