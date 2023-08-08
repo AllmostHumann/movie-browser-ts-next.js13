@@ -6,7 +6,7 @@ interface TvVideoProps {
   id: string | string[];
 }
 
-export const fetchMovieVideo = async ({ id }: TvVideoProps) => {
+export const fetchTvShowVideo = async ({ id }: TvVideoProps) => {
   const response = await axiosInstance.get<TvVideoResponse>(
     `${apiConfig.moviesDetailsAndCredits.endpoint}${id}/videos`
   );

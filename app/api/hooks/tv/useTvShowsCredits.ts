@@ -6,7 +6,7 @@ interface tvShowCreditsProps {
   id: string | string[];
 }
 
-export const fetchMovieCredits = async ({ id }: tvShowCreditsProps) => {
+export const fetchTvShowCredits = async ({ id }: tvShowCreditsProps) => {
   const response = await axiosInstance.get<TVCreditsResponse>(
     `${apiConfig.moviesDetailsAndCredits.endpoint}${id}/credits`
   );

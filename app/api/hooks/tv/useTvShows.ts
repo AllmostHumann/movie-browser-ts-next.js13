@@ -6,7 +6,7 @@ interface tvShowsProps {
   page: number;
 }
 
-export const fetchMoviesData = async ({ page }: tvShowsProps) => {
+export const fetchTvShowData = async ({ page }: tvShowsProps) => {
   const response = await axiosInstance.get<TvResponse>(
     `${apiConfig.tvShows.endpoint}`,
     { params: { page } }
