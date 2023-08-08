@@ -14,7 +14,6 @@ import { Poster } from "@/app/components/Pages/MoviePage/Poster/Poster";
 import { LoadingPage } from "@/app/components/Status/Loading/Loading";
 import { ErrorPage } from "@/app/components/Status/Error/Error";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
-import { ScrollButton } from "@/app/components/ScrollButton/ScrollButton";
 
 export default function MovieDetails() {
   const { id } = useParams();
