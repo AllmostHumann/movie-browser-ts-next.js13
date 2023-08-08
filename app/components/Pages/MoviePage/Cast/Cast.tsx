@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -6,7 +7,6 @@ import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
 import { GridList } from "@/app/components/GridList/GridList";
 import { PersonTile } from "@/app/components/Tiles/PersonTile/PersonTile";
 import { MovieCreditsResponse } from "@/app/api/types/movies/moviesCredits";
-import { useState } from "react";
 
 export const Cast = () => {
   const { id } = useParams();
@@ -56,13 +56,21 @@ export const Cast = () => {
               </li>
             ))}
         </GridList>
-        <div className="h-full rounded-[5px] mt-[15px] p-[8px] text-center shadow-[0px_4px_12px_0px#bac7d57f] transition-all duration-[170ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-[0px_8px_20px_5px_#A1BAE2] active:translate-y-[-8px] md:p-[16px] font-semibold bg-white">
-          {!loadMore ? (
-            <button onClick={() => setLoadMore(true)}>Load more</button>
-          ) : (
-            <button onClick={() => setLoadMore(false)}>Load less</button>
-          )}
-        </div>
+        {!loadMore ? (
+          <button
+            className="h-full w-full rounded-[5px] mt-[15px] p-[8px] text-center shadow-[0px_4px_12px_0px#bac7d57f] transition-all duration-[170ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-[0px_8px_20px_5px_#A1BAE2] active:translate-y-[-8px] md:p-[16px] font-semibold bg-white"
+            onClick={() => setLoadMore(true)}
+          >
+            Show more
+          </button>
+        ) : (
+          <button
+            className="h-full w-full rounded-[5px] mt-[15px] p-[8px] text-center shadow-[0px_4px_12px_0px#bac7d57f] transition-all duration-[170ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-[0px_8px_20px_5px_#A1BAE2] active:translate-y-[-8px] md:p-[16px] font-semibold bg-white"
+            onClick={() => setLoadMore(false)}
+          >
+            Show less
+          </button>
+        )}
       </section>
     </Container>
   );
