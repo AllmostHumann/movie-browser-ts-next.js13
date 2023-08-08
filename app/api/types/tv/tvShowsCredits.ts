@@ -2,7 +2,7 @@ export interface CastMember {
   id?: number;
   name?: string;
   profile_path?: string | null;
-  cast_id?: number;
+  credit_id?: number;
   character?: string;
 }
 
@@ -14,7 +14,7 @@ export interface CrewMember {
   job?: string;
 }
 
-export interface MovieCreditsResponse {
+export interface TVCreditsResponse {
   id?: number;
   cast?: CastMember[];
   crew?: CrewMember[];
