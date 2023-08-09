@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchGenresData } from "@/app/api/hooks/genres/useGenres";
-import { MoviesListResult } from "@/app/api/types/movies/popularMovies";
+import { fetchTvShowsGenresData } from "@/app/api/hooks/genres/useGenres";
+import { TvListResult } from "@/app/api/types/tv/popularTvShows";
 
-export const Genres = (movies: MoviesListResult) => {
+export const TvShowsGenres = (tvShows: TvListResult) => {
   const { data } = useQuery({
-    queryKey: ["genres"],
-    queryFn: fetchGenresData,
+    queryKey: ["tvShowsGenres"],
+    queryFn: fetchTvShowsGenresData,
   });
 
-  const filteredGenres = movies.genre_ids?.map(
-    (genre) => data?.filter(({ id }) => genre === id),
+  const filteredGenres = tvShows.genre_ids?.map(
+    (genre) => data?.filter(({ id }) => genre === id)
   );
 
   return (
@@ -23,7 +23,7 @@ export const Genres = (movies: MoviesListResult) => {
             >
               {name}
             </div>
-          )),
+          ))
       )}
     </div>
   );

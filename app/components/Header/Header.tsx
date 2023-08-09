@@ -5,7 +5,7 @@ import Icon from "./images/moviesIcon.svg";
 
 export const Header = () => {
   return (
-    <header className="m-auto bg-black p-[16px] text-white md:px-[16px] md:py-[23px]">
+    <header className="m-auto bg-black p-[16px] md:px-[16px] md:py-[23px]">
       <div className="m-auto grid max-w-[1368px] grid-cols-1 gap-[24px] md:grid-cols-9 md:gap-[16px]">
         <div className="flex justify-between gap-[20px] md:justify-start md:gap-[80px]">
           <Link

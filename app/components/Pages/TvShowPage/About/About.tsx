@@ -1,10 +1,10 @@
 import { useQueryClient } from "@tanstack/react-query";
-import moment from "moment";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import moment from "moment";
 import placeholderImage from "./../../../Tiles/MovieTile/images/noMoviePoster.png";
 import { Rating } from "../Rating/Rating";
-import { MovieDetailsResponse } from "@/app/api/types/movies/moviesDetails";
+import { TvDetailsResponse } from "@/app/api/types/tv/tvShowsDetails";
 import { apiConfig } from "@/app/api/config/apiRoutes";
 import useBreakpoint from "@/app/api/hooks/breakpoints/useBreakpoint";
 
@@ -12,8 +12,8 @@ export const About = () => {
   const { id } = useParams();
   const breakpoint = useBreakpoint();
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<MovieDetailsResponse>([
-    "movieDetails",
+  const data = queryClient.getQueryData<TvDetailsResponse>([
+    "tvShowDetails",
     { id },
   ]);
 
@@ -52,11 +52,8 @@ export const About = () => {
           className="m-0 text-[16px] font-medium leading-[120%] md:text-[36px] md:font-semibold"
           data-as={`${data?.backdrop_path ? "h2" : "h1"}`}
         >
-          {data?.title}
+          {data?.name}
         </h1>
-        <span className="text-[13px] font-normal leading-[120%]  md:text-[22px]">
-          {moment(data?.release_date).format("YYYY")}
-        </span>
         <div className="flex flex-col gap-[8px] text-[12px] md:text-[18px]">
           {data?.production_countries && (
             <div className="flex flex-wrap">
@@ -69,9 +66,14 @@ export const About = () => {
               </span>
             </div>
           )}
-          <div className="flex flex-wrap">
-            <span className="hidden md:mr-[10px] md:block">Release date:</span>
-            {moment(data?.release_date).format("DD.MM.YYYY")}
+          <div className="flex flex-col">
+            <span className="md:mr-[10px] md:block">
+              First air date:{" "}
+              {moment(data?.first_air_date).format("DD.MM.YYYY")}
+            </span>
+            <span className="md:mr-[10px] md:block">
+              Last air date: {moment(data?.last_air_date).format("DD.MM.YYYY")}
+            </span>
           </div>
         </div>
         <div className="flex flex-wrap gap-[8px] md:gap-[16px]">

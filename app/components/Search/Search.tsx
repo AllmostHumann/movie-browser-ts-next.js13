@@ -35,6 +35,8 @@ export const Search = () => {
         placeholder={
           pathname.includes("people")
             ? "Search for people..."
+            : pathname.includes("tv")
+            ? "Search for tv shows..."
             : "Search for movies..."
         }
       />

@@ -45,8 +45,11 @@ export const apiConfig = {
   posterW1280: {
     endpoint: `${apiImagesBaseUrl}/w1280`,
   },
-  genres: {
+  movieGenres: {
     endpoint: `${commonEndpoints.genre}/movie/list`,
+  },
+  tvShowGenres: {
+    endpoint: `${commonEndpoints.genre}/tv/list`,
   },
   searchMovie: {
     endpoint: `${commonEndpoints.search}/movie`,
