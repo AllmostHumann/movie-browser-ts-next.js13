@@ -11,7 +11,7 @@ export function Navigation() {
       href: `/movies-browser/movies`,
     },
     {
-      name: "TV SHOWS",
+      name: "TV",
       href: "/movies-browser/tv",
     },
     {
