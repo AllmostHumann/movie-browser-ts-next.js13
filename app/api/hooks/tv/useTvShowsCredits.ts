@@ -8,7 +8,7 @@ interface tvShowCreditsProps {
 
 export const fetchTvShowCredits = async ({ id }: tvShowCreditsProps) => {
   const response = await axiosInstance.get<TVCreditsResponse>(
-    `${apiConfig.moviesDetailsAndCredits.endpoint}${id}/credits`
+    `${apiConfig.tvShowsDetailsAndCredits.endpoint}${id}/credits`
   );
   return response.data;
 };

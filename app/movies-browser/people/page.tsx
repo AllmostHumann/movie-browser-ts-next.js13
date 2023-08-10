@@ -6,7 +6,6 @@ import { fetchPeopleData } from "@/app/api/hooks/people/usePeople";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 import { LoadingPage } from "@/app/components/Status/Loading/Loading";
 import { ErrorPage } from "@/app/components/Status/Error/Error";
-import { NoResult } from "@/app/components/Status/NoResult/NoResult";
 import { Main } from "@/app/components/Main/Main";
 import { Container } from "@/app/components/Container/Container";
 import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
@@ -40,8 +39,8 @@ export default function PopularPeople() {
       list={true}
       page={false}
     >
-      <Container>
-        {!query ? (
+      {!query ? (
+        <Container>
           <section>
             <SectionTitle
               list={true}
@@ -68,11 +67,11 @@ export default function PopularPeople() {
               ))}
             </GridList>
           </section>
-        ) : (
-          <SearchTile />
-        )}
-        {!query && <Pagination total_pages={data?.total_pages} />}
-      </Container>
+        </Container>
+      ) : (
+        <SearchTile />
+      )}
+      {!query && <Pagination total_pages={data?.total_pages} />}
     </Main>
   );
 }

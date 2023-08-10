@@ -12,7 +12,6 @@ import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
 import { Pagination } from "@/app/components/Pagination/Pagination";
 import { ErrorPage } from "@/app/components/Status/Error/Error";
 import { LoadingPage } from "@/app/components/Status/Loading/Loading";
-import { NoResult } from "@/app/components/Status/NoResult/NoResult";
 import { SearchTile } from "@/app/components/Tiles/SearchTile/SearchTile";
 
 export default function PopularMovies() {
@@ -39,8 +38,8 @@ export default function PopularMovies() {
       list={true}
       page={false}
     >
-      <Container>
-        {!query ? (
+      {!query ? (
+        <Container>
           <section>
             <SectionTitle
               list={true}
@@ -69,11 +68,11 @@ export default function PopularMovies() {
               ))}
             </GridList>
           </section>
-        ) : (
-          <SearchTile />
-        )}
-        {!query && <Pagination total_pages={data?.total_pages} />}
-      </Container>
+        </Container>
+      ) : (
+        <SearchTile />
+      )}
+      {!query && <Pagination total_pages={data?.total_pages} />}
     </Main>
   );
 }
