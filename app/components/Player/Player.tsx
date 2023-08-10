@@ -1,20 +1,29 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { fetchMovieVideo } from "@/app/api/hooks/movies/useMovieVideos";
 import ReactPlayer from "react-player/youtube";
 import Modal from "react-modal";
 import PlayButton from "./images/playButton.svg";
-import CloseButton from "./images/closeButton.svg";
-import classNames from "classnames";
+import { fetchTvShowVideo } from "@/app/api/hooks/tv/useTvShowsVideos";
 
 export const Player = () => {
   const { id } = useParams();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const { data } = useQuery({
-    queryKey: ["movieVideo", { id }],
-    queryFn: () => fetchMovieVideo({ id }),
+  const [movieVideo, tvShowVideo] = useQueries({
+    queries: [
+      {
+        queryKey: ["movieVideo", { id }],
+        queryFn: () => fetchMovieVideo({ id }),
+      },
+      {
+        queryKey: ["tvShowVideo", { id }],
+        queryFn: () => fetchTvShowVideo({ id }),
+      },
+    ],
   });
+
+  const { data } = movieVideo && tvShowVideo;
 
   const renderTrailer = data?.results?.findLast((vid) => vid.name);
 

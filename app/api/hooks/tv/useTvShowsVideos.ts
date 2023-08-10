@@ -8,7 +8,7 @@ interface TvVideoProps {
 
 export const fetchTvShowVideo = async ({ id }: TvVideoProps) => {
   const response = await axiosInstance.get<TvVideoResponse>(
-    `${apiConfig.moviesDetailsAndCredits.endpoint}${id}/videos`
+    `${apiConfig.tvShowsDetailsAndCredits.endpoint}${id}/videos`
   );
   return response.data;
 };
