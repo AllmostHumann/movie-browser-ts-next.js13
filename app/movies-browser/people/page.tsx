@@ -1,9 +1,8 @@
 "use client";
-import { useQueries } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
 import { fetchPeopleData } from "@/app/api/hooks/people/usePeople";
-import { fetchPersonQuery } from "@/app/api/hooks/queries/useQuery";
 import { searchQueryParamName } from "@/app/api/hooks/queries/useQueryParameter";
 import { LoadingPage } from "@/app/components/Status/Loading/Loading";
 import { ErrorPage } from "@/app/components/Status/Error/Error";
@@ -14,93 +13,66 @@ import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
 import { GridList } from "@/app/components/GridList/GridList";
 import { PersonTile } from "@/app/components/Tiles/PersonTile/PersonTile";
 import { Pagination } from "@/app/components/Pagination/Pagination";
+import { SearchTile } from "@/app/components/Tiles/SearchTile/SearchTile";
 
 export default function PopularPeople() {
   const searchParams = useSearchParams();
   const page = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName) || null;
 
-  const [peopleList, searchPerson] = useQueries({
-    queries: [
-      {
-        queryKey: ["peopleList", { page }],
-        queryFn: () => fetchPeopleData({ page }),
-        keepPreviousData: true,
-      },
-      {
-        queryKey: ["searchPerson", { query, page }],
-        queryFn: () => fetchPersonQuery({ query, page }),
-        keepPreviousData: true,
-        enabled: !!query,
-      },
-    ],
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["peopleList", { page }],
+    queryFn: () => fetchPeopleData({ page }),
+    keepPreviousData: true,
+    enabled: !query,
   });
 
-  const {
-    data: popularPeople,
-    isLoading: moviesListLoading,
-    error: moviesListError,
-  } = peopleList;
-  const {
-    data: filteredPersons,
-    isLoading: searchMovieLoading,
-    error: searchMovieError,
-  } = searchPerson;
-
-  if (moviesListLoading && searchMovieLoading) {
+  if (isLoading) {
     return <LoadingPage />;
   }
 
-  if (moviesListError && searchMovieError instanceof Error) {
+  if (error instanceof Error) {
     return <ErrorPage />;
   }
 
   return (
-    <Main list={true} page={false}>
-      {query && !filteredPersons?.total_results ? (
-        <NoResult query={query} />
-      ) : (
-        <Container>
+    <Main
+      list={true}
+      page={false}
+    >
+      <Container>
+        {!query ? (
           <section>
-            <SectionTitle list={true} details={false}>
+            <SectionTitle
+              list={true}
+              details={false}
+            >
               {query
-                ? `Search results for "${query}" (${filteredPersons?.total_results})`
+                ? `Search results for "${query}" (${data?.total_results})`
                 : "Popular people"}
             </SectionTitle>
-            <GridList people={true} movies={false}>
-              {!query &&
-                popularPeople?.results?.map((person) => (
-                  <li key={person.id}>
-                    <Link href={`/movies-browser/people/person/${person.id}`}>
-                      <PersonTile
-                        id={person.id}
-                        profile_path={person.profile_path}
-                        name={person.name}
-                      />
-                    </Link>
-                  </li>
-                ))}
-              {!!query &&
-                filteredPersons?.results?.map((query) => (
-                  <li key={query.id}>
-                    <Link href={`/movies-browser/people/person/${query.id}`}>
-                      <PersonTile
-                        id={query.id}
-                        profile_path={query.profile_path}
-                        name={query.name}
-                      />
-                    </Link>
-                  </li>
-                ))}
+            <GridList
+              people={true}
+              movies={false}
+            >
+              {data?.results?.map((person) => (
+                <li key={person.id}>
+                  <Link href={`/movies-browser/people/person/${person.id}`}>
+                    <PersonTile
+                      id={person.id}
+                      profile_path={person.profile_path}
+                      name={person.name}
+                    />
+                  </Link>
+                </li>
+              ))}
             </GridList>
           </section>
-          <Pagination
-            total_pages={
-              query ? filteredPersons?.total_pages : !popularPeople?.total_pages
-            }
-          />
-        </Container>
-      )}
+        ) : (
+          <SearchTile />
+        )}
+        {!query && <Pagination total_pages={data?.total_pages} />}
+      </Container>
     </Main>
   );
 }
