@@ -51,13 +51,7 @@ export const apiConfig = {
   tvShowGenres: {
     endpoint: `${commonEndpoints.genre}/tv/list`,
   },
-  searchMovie: {
-    endpoint: `${commonEndpoints.search}/movie`,
-  },
-  searchPerson: {
-    endpoint: `${commonEndpoints.search}/person`,
-  },
-  searchTvShow: {
-    endpoint: `${commonEndpoints.search}/tv`,
+  searchMulti: {
+    endpoint: `${commonEndpoints.search}/multi`,
   },
 };
