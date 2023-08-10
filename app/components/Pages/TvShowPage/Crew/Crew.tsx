@@ -6,14 +6,14 @@ import { Container } from "@/app/components/Container/Container";
 import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
 import { GridList } from "@/app/components/GridList/GridList";
 import { PersonTile } from "@/app/components/Tiles/PersonTile/PersonTile";
-import { MovieCreditsResponse } from "@/app/api/types/movies/moviesCredits";
+import { TVCreditsResponse } from "../../../../api/types/tv/tvShowsCredits";
 
-export const Cast = () => {
+export const Crew = () => {
   const { id } = useParams();
   const [loadMore, setLoadMore] = useState(false);
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<MovieCreditsResponse>([
-    "movieCredits",
+  const data = queryClient.getQueryData<TVCreditsResponse>([
+    "tvShowCredits",
     { id },
   ]);
 
@@ -24,33 +24,33 @@ export const Cast = () => {
           list={false}
           details={true}
         >
-          Cast
+          Crew
         </SectionTitle>
         <GridList
           people={true}
           movies={false}
         >
-          {data?.cast?.slice(0, 6).map((cast) => (
-            <li key={cast.cast_id}>
-              <Link href={`/movies-browser/people/person/${cast.id}`}>
+          {data?.crew?.slice(0, 6).map((crew) => (
+            <li key={crew.credit_id}>
+              <Link href={`/movies-browser/people/person/${crew.id}`}>
                 <PersonTile
-                  id={cast.id}
-                  profile_path={cast.profile_path}
-                  name={cast.name}
-                  character={cast.character}
+                  id={crew.id}
+                  profile_path={crew.profile_path}
+                  name={crew.name}
+                  job={crew.job}
                 />
               </Link>
             </li>
           ))}
           {loadMore &&
-            data?.cast?.slice(6).map((cast) => (
-              <li key={cast.cast_id}>
-                <Link href={`/movies-browser/people/person/${cast.id}`}>
+            data?.crew?.slice(6).map((crew) => (
+              <li key={crew.credit_id}>
+                <Link href={`/movies-browser/people/person/${crew.id}`}>
                   <PersonTile
-                    id={cast.id}
-                    profile_path={cast.profile_path}
-                    name={cast.name}
-                    character={cast.character}
+                    id={crew.id}
+                    profile_path={crew.profile_path}
+                    name={crew.name}
+                    job={crew.job}
                   />
                 </Link>
               </li>

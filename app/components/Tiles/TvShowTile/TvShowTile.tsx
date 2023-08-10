@@ -1,20 +1,20 @@
 import Image from "next/image";
-import noMoviePoster from "./images/noMoviePoster.png";
+import noTvShowPoster from "./images/noTvShowPoster.png";
 import Star from "./images/star.svg";
-import { MoviesGenres } from "../../Genres/MoviesGenres";
+import { TvShowsGenres } from "../../Genres/TvShowsGenres";
 import { apiConfig } from "@/app/api/config/apiRoutes";
-import { MoviesListResult } from "@/app/api/types/movies/popularMovies";
+import { TvListResult } from "@/app/api/types/tv/popularTvShows";
 import useBreakpoint from "../../../api/hooks/breakpoints/useBreakpoint";
 
-export const MovieTile = ({
+export const TvShowTile = ({
   id,
-  title,
+  name,
   poster_path,
-  release_date,
+  first_air_date,
   genre_ids,
   vote_count,
   vote_average,
-}: MoviesListResult) => {
+}: TvListResult) => {
   const breakpoint = useBreakpoint();
 
   return (
@@ -29,9 +29,9 @@ export const MovieTile = ({
             src={
               poster_path
                 ? `${apiConfig.posterW342.endpoint}${poster_path}`
-                : noMoviePoster
+                : noTvShowPoster
             }
-            alt="moviePoster"
+            alt="tvShowPoster"
             fill
             unoptimized
             priority
@@ -42,9 +42,9 @@ export const MovieTile = ({
             src={
               poster_path
                 ? `${apiConfig.posterW500.endpoint}${poster_path}`
-                : noMoviePoster
+                : noTvShowPoster
             }
-            alt="moviePoster"
+            alt="tvShowPoster"
             fill
             unoptimized
             priority
@@ -52,17 +52,17 @@ export const MovieTile = ({
         )}
       </div>
       <div className="my-0 ml-[8px] mr-0 flex flex-col items-start justify-start gap-[8px] md:justify-between">
-        {title && (
+        {name && (
           <h1 className="mt-[16px] text-[22px] font-medium leading-[1.3] text-smoke max-md:my-0 max-md:ml-[8px] max-md:mr-0 max-md:text-[16px]">
-            {title}
+            {name}
           </h1>
         )}
-        {release_date && (
+        {first_air_date && (
           <p className="my-0 ml-[8px] mr-0 text-[18px] font-normal text-waterloo md:m-0">
-            {new Date(release_date).getFullYear()}
+            {new Date(first_air_date).getFullYear()}
           </p>
         )}
-        {genre_ids && <MoviesGenres genre_ids={genre_ids} />}
+        {genre_ids && <TvShowsGenres genre_ids={genre_ids} />}
         {vote_average && vote_count ? (
           <div className="flex items-center px-[8px] py-0 mt-auto">
             <Star className="h-[16px] w-[16px] md:h-[21px] md:w-[21px] translate-y-[-3px]" />

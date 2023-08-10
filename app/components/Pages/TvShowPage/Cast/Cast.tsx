@@ -6,14 +6,14 @@ import { Container } from "@/app/components/Container/Container";
 import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
 import { GridList } from "@/app/components/GridList/GridList";
 import { PersonTile } from "@/app/components/Tiles/PersonTile/PersonTile";
-import { MovieCreditsResponse } from "@/app/api/types/movies/moviesCredits";
+import { TVCreditsResponse } from "@/app/api/types/tv/tvShowsCredits";
 
 export const Cast = () => {
   const { id } = useParams();
   const [loadMore, setLoadMore] = useState(false);
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<MovieCreditsResponse>([
-    "movieCredits",
+  const data = queryClient.getQueryData<TVCreditsResponse>([
+    "tvShowCredits",
     { id },
   ]);
 
@@ -31,7 +31,7 @@ export const Cast = () => {
           movies={false}
         >
           {data?.cast?.slice(0, 6).map((cast) => (
-            <li key={cast.cast_id}>
+            <li key={cast.credit_id}>
               <Link href={`/movies-browser/people/person/${cast.id}`}>
                 <PersonTile
                   id={cast.id}
@@ -44,7 +44,7 @@ export const Cast = () => {
           ))}
           {loadMore &&
             data?.cast?.slice(6).map((cast) => (
-              <li key={cast.cast_id}>
+              <li key={cast.credit_id}>
                 <Link href={`/movies-browser/people/person/${cast.id}`}>
                   <PersonTile
                     id={cast.id}

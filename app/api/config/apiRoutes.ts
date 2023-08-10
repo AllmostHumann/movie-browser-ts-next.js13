@@ -6,6 +6,7 @@ export const apiImagesBaseUrl = "https://image.tmdb.org/t/p";
 const commonEndpoints = {
   movie: "/movie",
   person: "/person",
+  tvShow: "/tv",
   genre: "/genre",
   search: "/search",
 };
@@ -23,6 +24,12 @@ export const apiConfig = {
   personDetailsAndCredits: {
     endpoint: `${commonEndpoints.person}/`,
   },
+  tvShows: {
+    endpoint: `${commonEndpoints.tvShow}/popular`,
+  },
+  tvShowsDetailsAndCredits: {
+    endpoint: `${commonEndpoints.tvShow}/`,
+  },
   posters: {
     endpoint: `${apiImagesBaseUrl}/original`,
   },
@@ -38,13 +45,13 @@ export const apiConfig = {
   posterW1280: {
     endpoint: `${apiImagesBaseUrl}/w1280`,
   },
-  genres: {
+  movieGenres: {
     endpoint: `${commonEndpoints.genre}/movie/list`,
   },
-  searchMovie: {
-    endpoint: `${commonEndpoints.search}/movie`,
+  tvShowGenres: {
+    endpoint: `${commonEndpoints.genre}/tv/list`,
   },
-  searchPerson: {
-    endpoint: `${commonEndpoints.search}/person`,
+  searchMulti: {
+    endpoint: `${commonEndpoints.search}/multi`,
   },
 };

@@ -11,6 +11,10 @@ export function Navigation() {
       href: `/movies-browser/movies`,
     },
     {
+      name: "TV",
+      href: "/movies-browser/tv",
+    },
+    {
       name: "PEOPLE",
       href: "/movies-browser/people",
     },
